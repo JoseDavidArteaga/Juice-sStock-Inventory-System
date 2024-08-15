@@ -1,6 +1,6 @@
 <h1 align="center">:space_invader: SuperJugos-Management-System :space_invader:</h1>
 
-### Cual es la necesidad?
+### Que necesita el cliente?
 El **SuperJugos Café Management System** es un software diseñado en [Java] para optimizar la gestión de la cafetería SuperJugos en Popayán. Este sistema permite administrar de manera eficiente las ventas diarias, el inventario de productos, los gastos operativos y generar estadísticas de ventas en diferentes períodos de tiempo.
 
 ### Integrantes
