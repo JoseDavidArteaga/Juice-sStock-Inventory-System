@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35898B7E-AA1B-4891-8EAC-788B57343E94}</ProjectGuid>
+    <ProjectGuid>{CCFED3D1-F453-48DA-9F70-379789EF174B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>JuicesStockApp</RootNamespace>
-    <AssemblyName>JuicesStockApp</AssemblyName>
+    <RootNamespace>Juices_Stock_App</RootNamespace>
+    <AssemblyName>Juices_Stock_App</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,9 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

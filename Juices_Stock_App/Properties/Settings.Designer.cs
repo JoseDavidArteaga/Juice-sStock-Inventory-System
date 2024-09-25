@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JuicesStockApp.Properties
+namespace Juices_Stock_App.Properties
 {
 
 

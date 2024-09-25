@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JuicesStockApp
+namespace Juices_Stock_App
 {
     internal static class Program
     {
