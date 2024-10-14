@@ -1,4 +1,5 @@
 ﻿using JuiceStockProject.Datos;
+using JuiceStockProject.Presentacion.Productos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,18 @@ namespace JuiceStockProject.Presentacion
         private void frmProductos_Load(object sender, EventArgs e)
         {
             this.Listado_pro();
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            // Si hay productos, abrir el formulario de agregar inventario
+            frmProductos_Agregar agregarProducto = new frmProductos_Agregar();
+
+            // Establecer frmInventario como el formulario propietario
+            agregarProducto.Owner = this;
+
+            // Mostrar frmAgregarInventario como un cuadro de diálogo modal
+            agregarProducto.ShowDialog();
         }
     }
 }
