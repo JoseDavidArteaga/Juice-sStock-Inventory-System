@@ -25,7 +25,7 @@ namespace JuiceStockProject.Presentacion
 
         private void CargarComboBoxProductos()
         {
-            DataTable tablaProductos = Datos.ObtenerNombresProductos();
+            DataTable tablaProductos = Datos.ObtenerNombres("SELECT nombre_prod  FROM Producto WHERE estado_prod = 'ACTIVO'");
 
             // Limpiar el ComboBox antes de cargar los datos
             cmbProducto.Items.Clear();

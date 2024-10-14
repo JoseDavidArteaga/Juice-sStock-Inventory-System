@@ -36,7 +36,7 @@ namespace JuiceStockProject.Datos
             }
         }
 
-        public DataTable ObtenerNombresProductos()
+        public DataTable ObtenerNombres(string cadena)
         {
             OracleDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -44,7 +44,7 @@ namespace JuiceStockProject.Datos
             try
             {
                 SqlCon = Conexion.getInstancia().CrearConexion();
-                OracleCommand Comando = new OracleCommand("SELECT nombre_prod, id_prod FROM Producto WHERE estado_prod = 'ACTIVO'", SqlCon);
+                OracleCommand Comando = new OracleCommand(cadena, SqlCon);
                 Comando.CommandType = CommandType.Text;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();

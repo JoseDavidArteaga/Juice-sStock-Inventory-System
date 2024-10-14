@@ -130,6 +130,7 @@
             btnAgregarProducto.TabIndex = 10;
             btnAgregarProducto.Text = "Agregar";
             btnAgregarProducto.UseVisualStyleBackColor = false;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // lblInvalido
             // 
@@ -160,6 +161,7 @@
             Controls.Add(label1);
             Name = "frmProductos_Agregar";
             Text = "frmProductos_Agregar";
+            Load += frmProductos_Agregar_Load;
             ResumeLayout(false);
             PerformLayout();
         }
