@@ -49,7 +49,7 @@ namespace JuiceStockProject.Presentacion
             // Mostrar frmAgregarInventario como un cuadro de diálogo modal
             agregarInventario.ShowDialog();
         }
-
+        //PRUEBA
         //-----------Metodo Para Actualizar La DataGridView------------
         public void ActualizarTabla()
         {
