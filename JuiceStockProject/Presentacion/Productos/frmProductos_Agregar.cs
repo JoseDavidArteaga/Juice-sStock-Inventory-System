@@ -16,5 +16,7 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             InitializeComponent();
         }
+
+      
     }
 }
