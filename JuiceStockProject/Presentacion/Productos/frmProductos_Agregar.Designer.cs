@@ -38,7 +38,7 @@
             cmbProveedor = new ComboBox();
             cmbCategoria = new ComboBox();
             btnAgregarProducto = new Button();
-            lblInvalido = new Label();
+            lblIncompleto = new Label();
             SuspendLayout();
             // 
             // label1
@@ -93,6 +93,7 @@
             txbNombre.Name = "txbNombre";
             txbNombre.Size = new Size(164, 27);
             txbNombre.TabIndex = 6;
+            txbNombre.KeyPress += txbNombre_KeyPress;
             // 
             // txbPrecio
             // 
@@ -100,6 +101,7 @@
             txbPrecio.Name = "txbPrecio";
             txbPrecio.Size = new Size(127, 27);
             txbPrecio.TabIndex = 7;
+            txbPrecio.KeyPress += txbPrecio_KeyPress;
             // 
             // cmbProveedor
             // 
@@ -109,6 +111,7 @@
             cmbProveedor.Name = "cmbProveedor";
             cmbProveedor.Size = new Size(151, 28);
             cmbProveedor.TabIndex = 8;
+            cmbProveedor.SelectedIndexChanged += cmbProveedor_SelectedIndexChanged;
             // 
             // cmbCategoria
             // 
@@ -118,6 +121,7 @@
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(151, 28);
             cmbCategoria.TabIndex = 9;
+            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
             // 
             // btnAgregarProducto
             // 
@@ -134,23 +138,23 @@
             btnAgregarProducto.UseVisualStyleBackColor = false;
             btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
-            // lblInvalido
+            // lblIncompleto
             // 
-            lblInvalido.AutoSize = true;
-            lblInvalido.ForeColor = Color.FromArgb(192, 0, 0);
-            lblInvalido.Location = new Point(132, 254);
-            lblInvalido.Name = "lblInvalido";
-            lblInvalido.Size = new Size(167, 20);
-            lblInvalido.TabIndex = 11;
-            lblInvalido.Text = "Ingrese todos los datos!";
-            lblInvalido.Visible = false;
+            lblIncompleto.AutoSize = true;
+            lblIncompleto.ForeColor = Color.FromArgb(192, 0, 0);
+            lblIncompleto.Location = new Point(132, 254);
+            lblIncompleto.Name = "lblIncompleto";
+            lblIncompleto.Size = new Size(167, 20);
+            lblIncompleto.TabIndex = 11;
+            lblIncompleto.Text = "Ingrese todos los datos!";
+            lblIncompleto.Visible = false;
             // 
             // frmProductos_Agregar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(582, 353);
-            Controls.Add(lblInvalido);
+            Controls.Add(lblIncompleto);
             Controls.Add(btnAgregarProducto);
             Controls.Add(cmbCategoria);
             Controls.Add(cmbProveedor);
@@ -181,6 +185,6 @@
         private ComboBox cmbProveedor;
         private ComboBox cmbCategoria;
         private Button btnAgregarProducto;
-        private Label lblInvalido;
+        private Label lblIncompleto;
     }
 }

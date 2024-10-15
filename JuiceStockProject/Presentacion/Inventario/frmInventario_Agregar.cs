@@ -65,9 +65,6 @@ namespace JuiceStockProject.Presentacion
 
             try
             {
-                // Verificar si hay productos en el ComboBox
-
-
                 // Verificar si se ha seleccionado un producto
                 if (cmbProducto.SelectedIndex == -1)
                 {

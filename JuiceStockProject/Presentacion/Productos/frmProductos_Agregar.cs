@@ -94,12 +94,13 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             try
             {
-                // Verificar si se ha seleccionado un producto
-                if (cmbCategoria.SelectedIndex == -1)
+                // Verificar si se ha ingresado un nombre, un precio, se ha seleccionado un proveedor o una categoría
+                if (cmbProveedor.SelectedIndex == -1 || cmbCategoria.SelectedIndex == -1 || txbNombre.Text == "" || txbPrecio.Text == "")
                 {
-                    MessageBox.Show("Por favor, seleccione una categoria.");
-                    return; // Salir del método si no hay una categoria seleccionado
+                    lblIncompleto.Visible = true;
+                    return; // Salir del método si no hay un producto seleccionado
                 }
+
                 // Obtener el nombre del producto nuevo
                 string nombreProd = txbNombre.Text;
 
@@ -153,11 +154,14 @@ namespace JuiceStockProject.Presentacion.Productos
                 {
                     // Mensaje de éxito
                     MessageBox.Show("El producto se ha agregado correctamente.");
-                }else if(banderaAgregar == 1)
+                }
+                else if (banderaAgregar == 1)
                 {
                     // Mensaje de error producto ya existente
-                    MessageBox.Show("El producto especificado ya existe");
-                }else
+                    MessageBox.Show("El nombre de producto especificado ya existe");
+                    return;
+                }
+                else
                 {
                     // Mensaje de error diferente
                     MessageBox.Show("OCurrió un error al intentar agregar el producto");
@@ -173,6 +177,35 @@ namespace JuiceStockProject.Presentacion.Productos
             {
                 MessageBox.Show("Error al actualizar la cantidad: " + ex.Message);
             }
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+        }
+
+        private void txbPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+            // Validar si el carácter es un número o si es la tecla de retroceso (para borrar)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar el carácter si no es un número
+            }
+        }
+
+        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
         }
     }
 }
