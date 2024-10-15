@@ -103,6 +103,7 @@
             // 
             // cmbProveedor
             // 
+            cmbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProveedor.FormattingEnabled = true;
             cmbProveedor.Location = new Point(135, 198);
             cmbProveedor.Name = "cmbProveedor";
@@ -111,6 +112,7 @@
             // 
             // cmbCategoria
             // 
+            cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoria.FormattingEnabled = true;
             cmbCategoria.Location = new Point(332, 198);
             cmbCategoria.Name = "cmbCategoria";
@@ -160,7 +162,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmProductos_Agregar";
-            Text = "frmProductos_Agregar";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agregar Productos";
             Load += frmProductos_Agregar_Load;
             ResumeLayout(false);
             PerformLayout();

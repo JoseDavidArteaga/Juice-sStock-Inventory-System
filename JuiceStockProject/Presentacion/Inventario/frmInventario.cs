@@ -1,4 +1,5 @@
 ﻿using JuiceStockProject.Datos;
+using JuiceStockProject.Presentacion.Inventario;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,29 @@ namespace JuiceStockProject.Presentacion
         private void frmInventario_Load(object sender, EventArgs e)
         {
             this.Listado_pro();
+        }
+
+        private void btnEliminarInventario_Click(object sender, EventArgs e)
+        {
+            // Cargar los productos del inventario desde la base de datos
+            D_Productos Datos = new D_Productos();
+            DataTable tablaProductos = Datos.ObtenerNombres("SELECT nombre_prod  FROM producto WHERE estado_prod = 'ACTIVO'");
+
+            // Verificar si hay productos activos
+            if (tablaProductos.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay productos activos para agregar en el inventario");
+                return; // No abrir el formulario si no hay productos
+            }
+
+            // Crear una instancia del formulario de Eliminar inventario
+            frmInventario_Eliminar eliminarInventario = new frmInventario_Eliminar();
+
+            // Establecer frmInventario como el formulario propietario
+            eliminarInventario.Owner = this;
+
+            // Mostrar frmAgregarInventario como un cuadro de diálogo modal
+            eliminarInventario.ShowDialog();
         }
     }
 }

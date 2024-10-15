@@ -126,6 +126,7 @@
             btnEliminarInventario.TabIndex = 1;
             btnEliminarInventario.Text = "Eliminar";
             btnEliminarInventario.UseVisualStyleBackColor = false;
+            btnEliminarInventario.Click += btnEliminarInventario_Click;
             // 
             // btnAgregarInventario
             // 

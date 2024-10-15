@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label2 = new Label();
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
             label1 = new Label();
             btnAgregarProducto = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnEliminarProductos = new Button();
+            btnModificarProductos = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
             dgvListadoProducto = new DataGridView();
@@ -105,6 +105,7 @@
             // btnAgregarProducto
             // 
             btnAgregarProducto.BackColor = Color.FromArgb(255, 158, 49);
+            btnAgregarProducto.Cursor = Cursors.Hand;
             btnAgregarProducto.FlatAppearance.BorderSize = 0;
             btnAgregarProducto.FlatStyle = FlatStyle.Flat;
             btnAgregarProducto.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -117,39 +118,42 @@
             btnAgregarProducto.UseVisualStyleBackColor = false;
             btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
-            // button2
+            // btnEliminarProductos
             // 
-            button2.BackColor = Color.FromArgb(255, 158, 49);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(268, 10);
-            button2.Name = "button2";
-            button2.Size = new Size(144, 47);
-            button2.TabIndex = 1;
-            button2.Text = "Eliminar";
-            button2.UseVisualStyleBackColor = false;
+            btnEliminarProductos.BackColor = Color.FromArgb(255, 158, 49);
+            btnEliminarProductos.Cursor = Cursors.Hand;
+            btnEliminarProductos.FlatAppearance.BorderSize = 0;
+            btnEliminarProductos.FlatStyle = FlatStyle.Flat;
+            btnEliminarProductos.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEliminarProductos.ForeColor = Color.Transparent;
+            btnEliminarProductos.Location = new Point(268, 10);
+            btnEliminarProductos.Name = "btnEliminarProductos";
+            btnEliminarProductos.Size = new Size(144, 47);
+            btnEliminarProductos.TabIndex = 1;
+            btnEliminarProductos.Text = "Eliminar";
+            btnEliminarProductos.UseVisualStyleBackColor = false;
+            btnEliminarProductos.Click += btnEliminarProductos_Click;
             // 
-            // button3
+            // btnModificarProductos
             // 
-            button3.BackColor = Color.FromArgb(255, 158, 49);
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(439, 10);
-            button3.Name = "button3";
-            button3.Size = new Size(144, 47);
-            button3.TabIndex = 2;
-            button3.Text = "Modificar";
-            button3.UseVisualStyleBackColor = false;
+            btnModificarProductos.BackColor = Color.FromArgb(255, 158, 49);
+            btnModificarProductos.Cursor = Cursors.Hand;
+            btnModificarProductos.FlatAppearance.BorderSize = 0;
+            btnModificarProductos.FlatStyle = FlatStyle.Flat;
+            btnModificarProductos.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnModificarProductos.ForeColor = Color.Transparent;
+            btnModificarProductos.Location = new Point(439, 10);
+            btnModificarProductos.Name = "btnModificarProductos";
+            btnModificarProductos.Size = new Size(144, 47);
+            btnModificarProductos.TabIndex = 2;
+            btnModificarProductos.Text = "Modificar";
+            btnModificarProductos.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(78, 141, 164);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(btnModificarProductos);
+            panel2.Controls.Add(btnEliminarProductos);
             panel2.Controls.Add(btnAgregarProducto);
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 486);
@@ -175,24 +179,24 @@
             dgvListadoProducto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListadoProducto.BackgroundColor = Color.FromArgb(222, 220, 220);
             dgvListadoProducto.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(142, 184, 194);
-            dataGridViewCellStyle3.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ControlLight;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Transparent;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvListadoProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(142, 184, 194);
+            dataGridViewCellStyle1.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Transparent;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvListadoProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvListadoProducto.ColumnHeadersHeight = 30;
             dgvListadoProducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(222, 220, 220);
-            dataGridViewCellStyle4.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ButtonShadow;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvListadoProducto.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 220, 220);
+            dataGridViewCellStyle2.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ButtonShadow;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvListadoProducto.DefaultCellStyle = dataGridViewCellStyle2;
             dgvListadoProducto.Dock = DockStyle.Fill;
             dgvListadoProducto.EnableHeadersVisualStyles = false;
             dgvListadoProducto.GridColor = SystemColors.ControlDark;
@@ -234,8 +238,8 @@
         private TextBox textBox1;
         private Label label1;
         private Button btnAgregarProducto;
-        private Button button2;
-        private Button button3;
+        private Button btnEliminarProductos;
+        private Button btnModificarProductos;
         private Panel panel2;
         private Panel panel3;
         private DataGridView dgvListadoProducto;

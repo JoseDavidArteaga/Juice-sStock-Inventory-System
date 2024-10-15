@@ -40,14 +40,26 @@ namespace JuiceStockProject.Presentacion
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            // Si hay productos, abrir el formulario de agregar inventario
+            // Si hay productos, abrir el formulario de agregar producto
             frmProductos_Agregar agregarProducto = new frmProductos_Agregar();
 
-            // Establecer frmInventario como el formulario propietario
+            // Establecer frmProductos como el formulario propietario
             agregarProducto.Owner = this;
 
-            // Mostrar frmAgregarInventario como un cuadro de diálogo modal
+            // Mostrar frmProductos_Agregar como un cuadro de diálogo modal
             agregarProducto.ShowDialog();
+        }
+
+        private void btnEliminarProductos_Click(object sender, EventArgs e)
+        {
+            // Si hay productos, abrir el formulario de agregar producto
+            frmProductos_Eliminar eliminarProducto = new frmProductos_Eliminar();
+
+            // Establecer frmProductos como el formulario propietario
+            eliminarProducto.Owner = this;
+
+            // Mostrar frmProductos_Agregar como un cuadro de diálogo modal
+            eliminarProducto.ShowDialog();
         }
     }
 }

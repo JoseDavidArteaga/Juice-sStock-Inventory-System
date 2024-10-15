@@ -183,7 +183,8 @@
             Controls.Add(pnContenedor);
             Controls.Add(pnOpciones);
             Name = "frmPrincipal";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "JuiceStock";
             Load += frmPrincipal_Load;
             pnOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

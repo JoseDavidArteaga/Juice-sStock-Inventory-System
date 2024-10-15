@@ -72,23 +72,24 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9F);
-            label3.Location = new Point(254, 173);
+            label3.Location = new Point(209, 108);
             label3.Name = "label3";
-            label3.Size = new Size(73, 18);
+            label3.Size = new Size(165, 18);
             label3.TabIndex = 4;
-            label3.Text = "Producto:";
+            label3.Text = "Seleccione el Producto:";
             // 
             // cmbProducto
             // 
+            cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProducto.FormattingEnabled = true;
-            cmbProducto.Location = new Point(117, 197);
+            cmbProducto.Location = new Point(123, 129);
             cmbProducto.Name = "cmbProducto";
             cmbProducto.Size = new Size(341, 28);
             cmbProducto.TabIndex = 3;
             // 
             // numCantidad
             // 
-            numCantidad.Location = new Point(324, 121);
+            numCantidad.Location = new Point(383, 193);
             numCantidad.Name = "numCantidad";
             numCantidad.Size = new Size(69, 27);
             numCantidad.TabIndex = 2;
@@ -97,21 +98,21 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9F);
-            label2.Location = new Point(167, 124);
+            label2.Location = new Point(136, 196);
             label2.Name = "label2";
-            label2.Size = new Size(137, 18);
+            label2.Size = new Size(220, 18);
             label2.TabIndex = 1;
-            label2.Text = "Cantidad a Agregar:";
+            label2.Text = "Cantidad de unidades a Agregar:";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(107, 43);
+            label1.Location = new Point(111, 43);
             label1.Name = "label1";
-            label1.Size = new Size(360, 34);
+            label1.Size = new Size(351, 34);
             label1.TabIndex = 0;
-            label1.Text = "Agregar Productos al Inventario";
+            label1.Text = "Agregar Unidades al Inventario";
             // 
             // frmInventario_Agregar
             // 
@@ -120,7 +121,8 @@
             ClientSize = new Size(582, 353);
             Controls.Add(panel1);
             Name = "frmInventario_Agregar";
-            Text = "frmInventario_Agregar";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agregar Unidades";
             Load += frmInventario_Agregar_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
