@@ -23,7 +23,8 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void CargarComboBoxProveedores()
         {
-            DataTable tablaProveedores = Datos.ObtenerNombres("SELECT nombre_prov FROM Proveedor WHERE estado_prov = 'ACTIVO'");
+            string cadena = "SELECT nombre_prov FROM Proveedor WHERE estado_prov = 'ACTIVO'";
+            DataTable tablaProveedores = Datos.ObtenerNombres(cadena);
 
             // Limpiar el ComboBox antes de cargar los datos
             cmbProveedor.Items.Clear();
@@ -45,7 +46,8 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void CargarComboBoxCategorias()
         {
-            DataTable tablaCategorias = Datos.ObtenerNombres("SELECT nombre_categoria FROM categoria");
+            string cadena = "SELECT nombre_categoria FROM categoria_producto";
+            DataTable tablaCategorias = Datos.ObtenerNombres(cadena);
 
             // Limpiar el ComboBox antes de cargar los datos
             cmbCategoria.Items.Clear();
@@ -56,7 +58,7 @@ namespace JuiceStockProject.Presentacion.Productos
                 // Recorrer cada fila en la tabla y añadir el nombre al ComboBox
                 foreach (DataRow row in tablaCategorias.Rows)
                 {
-                    cmbProveedor.Items.Add(row["nombre_categoria"].ToString());
+                    cmbCategoria.Items.Add(row["nombre_categoria"].ToString());
                 }
             }
             else
@@ -98,6 +100,11 @@ namespace JuiceStockProject.Presentacion.Productos
                     MessageBox.Show("Por favor, seleccione una categoria.");
                     return; // Salir del método si no hay una categoria seleccionado
                 }
+                // Obtener el nombre del producto nuevo
+                string nombreProd = txbNombre.Text;
+
+                // Obtener el precio del producto nuevo
+                int precioProd = Convert.ToInt32(txbPrecio.Text);
 
                 // Obtener el nombre del proveedor seleccionado
                 string nombreProveedorSeleccionado = cmbProveedor.SelectedItem.ToString();
@@ -105,34 +112,62 @@ namespace JuiceStockProject.Presentacion.Productos
                 // Obtener el nombre de la categoria seleccionada
                 string nombreCategoriaSeleccionado = cmbCategoria.SelectedItem.ToString();
 
+                // Bandera traída desde la BD
+                int banderaAgregar = 0;
+
                 // Crear la conexión
                 using (OracleConnection conexion = Conexion.getInstancia().CrearConexion())
                 {
                     //Pendiente desde aquí
                     // Crear el comando para llamar al procedimiento almacenado
-                    using (OracleCommand comando = new OracleCommand("agregar_producto_procedimiento", conexion))
+                    using (OracleCommand comando = new OracleCommand("agregar_producto_proc", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
 
                         // Añadir los parámetros al comando
-                        comando.Parameters.Add(new OracleParameter("p_nombre_prod", nombreProductoSeleccionado));
-                        comando.Parameters.Add(new OracleParameter("p_cantidad_agregar", cantidadASumar));
+                        comando.Parameters.Add(new OracleParameter("nombre_producto", nombreProd));
+                        comando.Parameters.Add(new OracleParameter("nombre_categoria", nombreCategoriaSeleccionado));
+                        comando.Parameters.Add(new OracleParameter("precio_producto", precioProd));
+                        comando.Parameters.Add(new OracleParameter("nombre_proveedor", nombreProveedorSeleccionado));
+
+                        // Recibir parámetro de salida
+                        OracleParameter banderaAgregarParam = new OracleParameter("p_bandera", OracleDbType.Int32);
+                        banderaAgregarParam.Direction = ParameterDirection.Output;
+                        comando.Parameters.Add(banderaAgregarParam);
 
                         // Abrir la conexión y ejecutar el comando
                         conexion.Open();
                         comando.ExecuteNonQuery();
+
+                        // Recuperar el valor del parámetro de salida
+                        if (banderaAgregarParam.Value != DBNull.Value)
+                        {
+                            Oracle.ManagedDataAccess.Types.OracleDecimal oracleDecimal = (Oracle.ManagedDataAccess.Types.OracleDecimal)banderaAgregarParam.Value;
+                            banderaAgregar = oracleDecimal.ToInt32();
+                        }
                     }
                 }
 
-                // Mensaje de éxito
-                MessageBox.Show("La cantidad se ha actualizado correctamente.");
 
+                if (banderaAgregar == 0)
+                {
+                    // Mensaje de éxito
+                    MessageBox.Show("El producto se ha agregado correctamente.");
+                }else if(banderaAgregar == 1)
+                {
+                    // Mensaje de error producto ya existente
+                    MessageBox.Show("El producto especificado ya existe");
+                }else
+                {
+                    // Mensaje de error diferente
+                    MessageBox.Show("OCurrió un error al intentar agregar el producto");
+                }
                 // Cerrar el formulario de agregar inventario
                 this.Close();
 
                 // Actualizar el formulario de inventario
-                var frmInventario = (frmInventario)Owner; // Obtener el formulario padre (frmInventario)
-                frmInventario.ActualizarTabla(); // Llamar al método para actualizar la tabla
+                var frmProductos = (frmProductos)Owner; // Obtener el formulario padre (frmPrincipal)
+                frmProductos.ActualizarTabla(); // Llamar al método para actualizar la tabla
             }
             catch (Exception ex)
             {

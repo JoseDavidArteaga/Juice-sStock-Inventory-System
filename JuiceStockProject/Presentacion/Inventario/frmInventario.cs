@@ -31,7 +31,7 @@ namespace JuiceStockProject.Presentacion
 
             // Cargar los productos del inventario desde la base de datos
             D_Productos Datos = new D_Productos();
-            DataTable tablaProductos = Datos.ObtenerNombresProductos();
+            DataTable tablaProductos = Datos.ObtenerNombres("SELECT nombre_prod  FROM producto WHERE estado_prod = 'ACTIVO'");
 
             // Verificar si hay productos activos
             if (tablaProductos.Rows.Count == 0)

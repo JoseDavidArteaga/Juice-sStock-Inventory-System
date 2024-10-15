@@ -26,6 +26,13 @@ namespace JuiceStockProject.Presentacion
             dgvListadoProducto.DataSource = Datos.listado_pro(cadena);
         }
 
+        public void ActualizarTabla()
+        {
+            // Llamar al método que carga los datos en el DataGridView
+            D_Productos Datos = new D_Productos();
+            dgvListadoProducto.DataSource = Datos.listado_pro(cadena);
+        }
+
         private void frmProductos_Load(object sender, EventArgs e)
         {
             this.Listado_pro();
