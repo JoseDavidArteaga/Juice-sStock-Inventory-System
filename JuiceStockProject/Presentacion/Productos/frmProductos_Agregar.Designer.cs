@@ -90,6 +90,7 @@
             // txbNombre
             // 
             txbNombre.Location = new Point(135, 114);
+            txbNombre.MaxLength = 50;
             txbNombre.Name = "txbNombre";
             txbNombre.Size = new Size(164, 27);
             txbNombre.TabIndex = 6;
