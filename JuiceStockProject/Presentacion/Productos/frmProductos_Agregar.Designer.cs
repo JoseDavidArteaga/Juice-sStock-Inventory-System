@@ -101,6 +101,7 @@
             txbPrecio.Name = "txbPrecio";
             txbPrecio.Size = new Size(127, 27);
             txbPrecio.TabIndex = 7;
+            txbPrecio.KeyDown += txbPrecio_KeyDown;
             txbPrecio.KeyPress += txbPrecio_KeyPress;
             // 
             // cmbProveedor

@@ -189,6 +189,7 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             // Inhabilitar lblIncompleto porque ya no está vacío
             lblIncompleto.Visible = false;
+
             // Validar si el carácter es un número o si es la tecla de retroceso (para borrar)
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
@@ -206,6 +207,15 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             // Inhabilitar lblIncompleto porque ya no está vacío
             lblIncompleto.Visible = false;
+        }
+
+        private void txbPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la combinación de teclas es Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
         }
     }
 }

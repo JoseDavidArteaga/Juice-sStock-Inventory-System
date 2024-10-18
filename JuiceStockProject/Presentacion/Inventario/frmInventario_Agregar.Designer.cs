@@ -93,6 +93,8 @@
             numCantidad.Name = "numCantidad";
             numCantidad.Size = new Size(69, 27);
             numCantidad.TabIndex = 2;
+            numCantidad.KeyDown += numCantidad_KeyDown;
+            numCantidad.KeyPress += numCantidad_KeyPress;
             // 
             // label2
             // 
