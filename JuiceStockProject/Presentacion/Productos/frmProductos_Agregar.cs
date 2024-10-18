@@ -72,6 +72,7 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             // Poner invisibles labels que no se necesitan
             lblMinCaracteres.Visible = false;
+            lblPrecio0.Visible = false;
 
             // Llenar comboBox de proveedores
             this.CargarComboBoxProveedores();
@@ -234,6 +235,21 @@ namespace JuiceStockProject.Presentacion.Productos
             {
                 lblMinCaracteres.Visible = true; // Mostrar aviso de que debe ingresar más de 3 caracteres
                 btnAgregarProducto.Enabled = false;
+            }
+        }
+
+        private void txbPrecio_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto es exactamente "0"
+            if (txbPrecio.Text == "0")
+            {
+                lblPrecio0.Visible = true;   // Mostrar el mensaje de advertencia si es "0"
+                btnAgregarProducto.Enabled = false; // Inhabilitar botón de agregar producto hasta que el precio sea diferente de 0
+            }
+            else
+            {
+                lblPrecio0.Visible = false;  // Ocultar el mensaje si el texto es diferente a "0"
+                btnAgregarProducto.Enabled = true; // Habilitar botón de agregar producto ya que el precio no es 0
             }
         }
     }
