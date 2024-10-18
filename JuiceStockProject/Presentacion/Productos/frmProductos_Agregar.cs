@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace JuiceStockProject.Presentacion.Productos
 {
@@ -69,6 +70,9 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void frmProductos_Agregar_Load(object sender, EventArgs e)
         {
+            // Poner invisibles labels que no se necesitan
+            lblMinCaracteres.Visible = false;
+
             // Llenar comboBox de proveedores
             this.CargarComboBoxProveedores();
 
@@ -215,6 +219,21 @@ namespace JuiceStockProject.Presentacion.Productos
             if (e.Control && e.KeyCode == Keys.V)
             {
                 e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
+        }
+
+        private void txbNombre_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto ingresado tiene al menos 3 caracteres
+            if (txbNombre.Text.Length >= 3)
+            {
+                lblMinCaracteres.Visible = false;  // Dejar de mostrar aviso de que debe ingresar más de 3 caracteres
+                btnAgregarProducto.Enabled = true;
+            }
+            else
+            {
+                lblMinCaracteres.Visible = true; // Mostrar aviso de que debe ingresar más de 3 caracteres
+                btnAgregarProducto.Enabled = false;
             }
         }
     }
