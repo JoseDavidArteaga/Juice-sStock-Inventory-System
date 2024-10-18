@@ -102,6 +102,7 @@
             // txbPrecio
             // 
             txbPrecio.Location = new Point(332, 114);
+            txbPrecio.MaxLength = 10;
             txbPrecio.Name = "txbPrecio";
             txbPrecio.Size = new Size(127, 27);
             txbPrecio.TabIndex = 7;
