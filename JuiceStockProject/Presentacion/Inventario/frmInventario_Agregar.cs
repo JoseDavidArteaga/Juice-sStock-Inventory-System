@@ -116,5 +116,22 @@ namespace JuiceStockProject.Presentacion
                 MessageBox.Show("Error al actualizar la cantidad: " + ex.Message);
             }
         }
+
+        private void numCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar el carácter si no es un número
+            }
+        }
+
+        private void numCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la combinación de teclas es Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
+        }
     }
 }

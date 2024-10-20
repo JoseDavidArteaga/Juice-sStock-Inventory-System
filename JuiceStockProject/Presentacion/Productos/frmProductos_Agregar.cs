@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace JuiceStockProject.Presentacion.Productos
 {
@@ -69,6 +70,10 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void frmProductos_Agregar_Load(object sender, EventArgs e)
         {
+            // Poner invisibles labels que no se necesitan
+            lblMinCaracteres.Visible = false;
+            lblPrecio0.Visible = false;
+
             // Llenar comboBox de proveedores
             this.CargarComboBoxProveedores();
 
@@ -189,6 +194,7 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             // Inhabilitar lblIncompleto porque ya no está vacío
             lblIncompleto.Visible = false;
+
             // Validar si el carácter es un número o si es la tecla de retroceso (para borrar)
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
@@ -206,6 +212,45 @@ namespace JuiceStockProject.Presentacion.Productos
         {
             // Inhabilitar lblIncompleto porque ya no está vacío
             lblIncompleto.Visible = false;
+        }
+
+        private void txbPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la combinación de teclas es Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
+        }
+
+        private void txbNombre_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto ingresado tiene al menos 3 caracteres
+            if (txbNombre.Text.Length >= 3)
+            {
+                lblMinCaracteres.Visible = false;  // Dejar de mostrar aviso de que debe ingresar más de 3 caracteres
+                btnAgregarProducto.Enabled = true;
+            }
+            else
+            {
+                lblMinCaracteres.Visible = true; // Mostrar aviso de que debe ingresar más de 3 caracteres
+                btnAgregarProducto.Enabled = false;
+            }
+        }
+
+        private void txbPrecio_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto es exactamente "0"
+            if (txbPrecio.Text == "0")
+            {
+                lblPrecio0.Visible = true;   // Mostrar el mensaje de advertencia si es "0"
+                btnAgregarProducto.Enabled = false; // Inhabilitar botón de agregar producto hasta que el precio sea diferente de 0
+            }
+            else
+            {
+                lblPrecio0.Visible = false;  // Ocultar el mensaje si el texto es diferente a "0"
+                btnAgregarProducto.Enabled = true; // Habilitar botón de agregar producto ya que el precio no es 0
+            }
         }
     }
 }
