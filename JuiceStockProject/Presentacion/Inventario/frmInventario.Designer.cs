@@ -32,7 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            cmbCategoria = new ComboBox();
             txtBuscar = new TextBox();
             label1 = new Label();
             panel2 = new Panel();
@@ -50,7 +50,7 @@
             // 
             panel1.BackColor = Color.FromArgb(78, 141, 164);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(cmbCategoria);
             panel1.Controls.Add(txtBuscar);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -70,15 +70,19 @@
             label2.TabIndex = 3;
             label2.Text = "CATEGORIA";
             // 
-            // comboBox1
+            // cmbCategoria
             // 
-            comboBox1.BackColor = Color.FromArgb(142, 184, 194);
-            comboBox1.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(701, 18);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(270, 36);
-            comboBox1.TabIndex = 2;
+            cmbCategoria.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbCategoria.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbCategoria.BackColor = Color.FromArgb(142, 184, 194);
+            cmbCategoria.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Items.AddRange(new object[] { "TODAS" });
+            cmbCategoria.Location = new Point(701, 18);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(270, 36);
+            cmbCategoria.TabIndex = 2;
+            cmbCategoria.TextChanged += cmbCategoria_TextChanged;
             // 
             // txtBuscar
             // 
@@ -217,7 +221,7 @@
         #endregion
 
         private Panel panel1;
-        private ComboBox comboBox1;
+        private ComboBox cmbCategoria;
         private TextBox txtBuscar;
         private Label label1;
         private Label label2;

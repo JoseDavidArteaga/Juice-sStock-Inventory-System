@@ -39,7 +39,6 @@
             cmbCategoria = new ComboBox();
             btnAgregarProducto = new Button();
             lblIncompleto = new Label();
-            lblMinCaracteres = new Label();
             lblPrecio0 = new Label();
             SuspendLayout();
             // 
@@ -158,16 +157,6 @@
             lblIncompleto.Text = "Ingrese todos los datos!";
             lblIncompleto.Visible = false;
             // 
-            // lblMinCaracteres
-            // 
-            lblMinCaracteres.AutoSize = true;
-            lblMinCaracteres.ForeColor = Color.FromArgb(192, 0, 0);
-            lblMinCaracteres.Location = new Point(135, 144);
-            lblMinCaracteres.Name = "lblMinCaracteres";
-            lblMinCaracteres.Size = new Size(143, 20);
-            lblMinCaracteres.TabIndex = 12;
-            lblMinCaracteres.Text = "Mínimo 3 caracteres";
-            // 
             // lblPrecio0
             // 
             lblPrecio0.AutoSize = true;
@@ -184,7 +173,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(582, 353);
             Controls.Add(lblPrecio0);
-            Controls.Add(lblMinCaracteres);
             Controls.Add(lblIncompleto);
             Controls.Add(btnAgregarProducto);
             Controls.Add(cmbCategoria);
@@ -217,7 +205,6 @@
         private ComboBox cmbCategoria;
         private Button btnAgregarProducto;
         private Label lblIncompleto;
-        private Label lblMinCaracteres;
         private Label lblPrecio0;
     }
 }

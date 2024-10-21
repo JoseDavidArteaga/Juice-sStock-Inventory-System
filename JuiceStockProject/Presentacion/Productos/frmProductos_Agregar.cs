@@ -71,7 +71,6 @@ namespace JuiceStockProject.Presentacion.Productos
         private void frmProductos_Agregar_Load(object sender, EventArgs e)
         {
             // Poner invisibles labels que no se necesitan
-            lblMinCaracteres.Visible = false;
             lblPrecio0.Visible = false;
 
             // Llenar comboBox de proveedores
@@ -228,12 +227,10 @@ namespace JuiceStockProject.Presentacion.Productos
             // Verificar si el texto ingresado tiene al menos 3 caracteres
             if (txbNombre.Text.Length >= 3)
             {
-                lblMinCaracteres.Visible = false;  // Dejar de mostrar aviso de que debe ingresar más de 3 caracteres
                 btnAgregarProducto.Enabled = true;
             }
             else
             {
-                lblMinCaracteres.Visible = true; // Mostrar aviso de que debe ingresar más de 3 caracteres
                 btnAgregarProducto.Enabled = false;
             }
         }
