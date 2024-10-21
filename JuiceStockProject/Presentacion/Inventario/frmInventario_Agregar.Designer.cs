@@ -80,7 +80,8 @@
             // 
             // cmbProducto
             // 
-            cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProducto.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbProducto.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbProducto.FormattingEnabled = true;
             cmbProducto.Location = new Point(123, 129);
             cmbProducto.Name = "cmbProducto";

@@ -112,7 +112,8 @@
             // 
             // cmbProveedor
             // 
-            cmbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProveedor.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbProveedor.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbProveedor.FormattingEnabled = true;
             cmbProveedor.Location = new Point(135, 198);
             cmbProveedor.Name = "cmbProveedor";
@@ -122,7 +123,8 @@
             // 
             // cmbCategoria
             // 
-            cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategoria.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbCategoria.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbCategoria.FormattingEnabled = true;
             cmbCategoria.Location = new Point(332, 198);
             cmbCategoria.Name = "cmbCategoria";

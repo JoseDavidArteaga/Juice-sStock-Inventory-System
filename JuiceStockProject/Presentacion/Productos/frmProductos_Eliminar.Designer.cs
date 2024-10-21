@@ -38,7 +38,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift SemiCondensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(176, 56);
+            label1.Location = new Point(181, 55);
             label1.Name = "label1";
             label1.Size = new Size(221, 34);
             label1.TabIndex = 2;
@@ -46,7 +46,8 @@
             // 
             // cmbProductos
             // 
-            cmbProductos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProductos.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbProductos.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbProductos.FormattingEnabled = true;
             cmbProductos.Location = new Point(157, 161);
             cmbProductos.Name = "cmbProductos";
