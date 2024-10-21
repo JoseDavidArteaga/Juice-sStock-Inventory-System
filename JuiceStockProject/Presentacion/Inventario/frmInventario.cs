@@ -19,7 +19,7 @@ namespace JuiceStockProject.Presentacion
         {
             InitializeComponent();
         }
-        string cadena = "SELECT ID_PROD \"      Identificador\", NOMBRE_PROD \"       Nombre\", NOMBRE_CATEGORIA \"     Categoría\", CANTIDAD_PROD \"      Cantidad\" FROM VISTA_PRODUCTOS";
+        string cadena = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", CANTIDAD_PROD \"Cantidad\" FROM VISTA_PRODUCTOS";
 
         private void Listado_pro()
         {
@@ -88,5 +88,40 @@ namespace JuiceStockProject.Presentacion
             // Mostrar frmAgregarInventario como un cuadro de diálogo modal
             eliminarInventario.ShowDialog();
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            // Capturar el texto ingresado en el TextBox
+            string textoBusqueda = txtBuscar.Text;
+
+            // Crear una consulta que cargue todos los productos si no hay texto en el TextBox
+            string consultaFiltrada;
+
+            if (string.IsNullOrWhiteSpace(textoBusqueda))
+            {
+                // Si el TextBox está vacío, mostrar todos los productos
+                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", CANTIDAD_PROD \"Cantidad\" " +
+                                   "FROM VISTA_PRODUCTOS";
+            }
+            else
+            {
+                // Si hay texto, buscar los productos que contengan la cadena ingresada
+                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", CANTIDAD_PROD \"Cantidad\" " +
+                                   "FROM VISTA_PRODUCTOS " +
+                                   "WHERE upper(NOMBRE_PROD) LIKE '%" + textoBusqueda.ToUpper() + "%' " +
+                                   "ORDER BY CASE " +
+                                   "WHEN upper(NOMBRE_PROD) LIKE '" + textoBusqueda.ToUpper() + "%' THEN 1 " +  // Prefiere los que empiezan con el texto
+                                   "WHEN upper(NOMBRE_PROD) LIKE '%" + textoBusqueda.ToUpper() + "%' THEN 2 " +  // Luego los que contienen el texto
+                                   "ELSE 3 END, NOMBRE_PROD ASC"; // Si no es una coincidencia, ponerlo al final
+
+            }
+
+            // Llamar al método que actualiza el DataGridView con los productos filtrados
+            D_Productos Datos = new D_Productos();
+            dgvListadoInventario.DataSource = Datos.listado_pro(consultaFiltrada);
+        }
+
+
+
     }
 }

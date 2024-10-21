@@ -33,7 +33,7 @@
             panel1 = new Panel();
             label2 = new Label();
             comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            txtBuscar = new TextBox();
             label1 = new Label();
             panel2 = new Panel();
             btnEliminarInventario = new Button();
@@ -51,7 +51,7 @@
             panel1.BackColor = Color.FromArgb(78, 141, 164);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtBuscar);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -80,15 +80,16 @@
             comboBox1.Size = new Size(270, 36);
             comboBox1.TabIndex = 2;
             // 
-            // textBox1
+            // txtBuscar
             // 
-            textBox1.BackColor = Color.FromArgb(142, 184, 194);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(252, 20);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(270, 28);
-            textBox1.TabIndex = 1;
+            txtBuscar.BackColor = Color.FromArgb(142, 184, 194);
+            txtBuscar.BorderStyle = BorderStyle.None;
+            txtBuscar.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBuscar.Location = new Point(252, 20);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(270, 28);
+            txtBuscar.TabIndex = 1;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // label1
             // 
@@ -217,7 +218,7 @@
 
         private Panel panel1;
         private ComboBox comboBox1;
-        private TextBox textBox1;
+        private TextBox txtBuscar;
         private Label label1;
         private Label label2;
         private Panel panel2;
