@@ -27,6 +27,8 @@ namespace JuiceStockProject.Presentacion
             dgvListadoInventario.DataSource = Datos.listado_pro(cadena);
         }
 
+
+
         private void btnAgregarInventario_Click(object sender, EventArgs e)
         {
 

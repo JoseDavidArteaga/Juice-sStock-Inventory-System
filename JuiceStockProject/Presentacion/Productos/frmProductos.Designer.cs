@@ -57,7 +57,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1034, 70);
+            panel1.Size = new Size(1052, 70);
             panel1.TabIndex = 2;
             // 
             // label2
@@ -156,9 +156,9 @@
             panel2.Controls.Add(btnEliminarProductos);
             panel2.Controls.Add(btnAgregarProducto);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 486);
+            panel2.Location = new Point(0, 533);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1034, 70);
+            panel2.Size = new Size(1052, 70);
             panel2.TabIndex = 4;
             // 
             // panel3
@@ -167,7 +167,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 70);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1034, 416);
+            panel3.Size = new Size(1052, 463);
             panel3.TabIndex = 5;
             // 
             // dgvListadoProducto
@@ -207,14 +207,14 @@
             dgvListadoProducto.RowHeadersWidth = 51;
             dgvListadoProducto.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvListadoProducto.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvListadoProducto.Size = new Size(1034, 416);
+            dgvListadoProducto.Size = new Size(1052, 463);
             dgvListadoProducto.TabIndex = 1;
             // 
             // frmProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1034, 556);
+            ClientSize = new Size(1052, 603);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(panel2);
