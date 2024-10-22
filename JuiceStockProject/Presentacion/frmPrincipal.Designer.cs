@@ -83,6 +83,7 @@
             btnReportes.TabIndex = 9;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.Click += btnReportes_Click;
             // 
             // panel3
             // 
@@ -106,6 +107,7 @@
             btnProveedores.TabIndex = 7;
             btnProveedores.Text = "Proveedores";
             btnProveedores.UseVisualStyleBackColor = true;
+            btnProveedores.Click += btnProveedores_Click;
             // 
             // panel2
             // 

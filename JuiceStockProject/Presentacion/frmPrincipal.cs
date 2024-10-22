@@ -20,13 +20,24 @@ namespace JuiceStockProject
             fh.Show();
         }
 
+        private void restablecerColor()
+        {
+            btnInventario.BackColor = Color.FromArgb(142, 184, 194);
+            btnProductos.BackColor = Color.FromArgb(142, 184, 194);
+            btnProveedores.BackColor = Color.FromArgb(142, 184, 194);
+            btnReportes.BackColor = Color.FromArgb(142, 184, 194);
+        }
         private void btnInventario_Click(object sender, EventArgs e)
         {
+
+            restablecerColor();
+            btnInventario.BackColor = Color.FromArgb(255, 158, 49);
             AbrirFormHija(new frmInventario());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            restablecerColor();
             AbrirFormHija(new frmInicio());
 
         }
@@ -38,7 +49,21 @@ namespace JuiceStockProject
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            restablecerColor();
+            btnProductos.BackColor = Color.FromArgb(255, 158, 49);
             AbrirFormHija(new frmProductos());
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            restablecerColor();
+            btnProveedores.BackColor = Color.FromArgb(255, 158, 49);
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            restablecerColor();
+            btnReportes.BackColor = Color.FromArgb(255, 158, 49);
         }
     }
 }
