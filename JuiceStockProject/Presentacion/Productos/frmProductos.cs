@@ -18,7 +18,9 @@ namespace JuiceStockProject.Presentacion
         {
             InitializeComponent();
         }
+
         string cadena = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", PRECIO_PROD \"Precio\" FROM VISTA_PRODUCTOS";
+        D_Productos Datos = new D_Productos();
 
         private void Listado_pro()
         {
@@ -36,6 +38,16 @@ namespace JuiceStockProject.Presentacion
         private void frmProductos_Load(object sender, EventArgs e)
         {
             this.Listado_pro();
+
+            // Llenar comboBox de categorias
+            this.CargarComboBoxCategorias();
+
+            // Verificar si hay suficientes elementos en el ComboBox antes de establecer SelectedIndex
+            if (cmbCategoria.Items.Count > 0)
+            {
+                // Establecer el índice si hay al menos un producto
+                cmbCategoria.SelectedIndex = -1; // Selecciona el primer elemento
+            }
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
@@ -92,6 +104,29 @@ namespace JuiceStockProject.Presentacion
             // Llamar al método que actualiza el DataGridView con los productos filtrados
             D_Productos Datos = new D_Productos();
             dgvListadoProducto.DataSource = Datos.listado_pro(consultaFiltrada);
+        }
+
+        private void CargarComboBoxCategorias()
+        {
+            string cadena = "SELECT nombre_categoria FROM categoria_producto";
+            DataTable tablaCategorias = Datos.ObtenerNombres(cadena);
+
+            // Limpiar el ComboBox antes de cargar los datos
+            cmbCategoria.Items.Clear();
+
+            // Verificar si se obtuvieron datos
+            if (tablaCategorias.Rows.Count > 0)
+            {
+                // Recorrer cada fila en la tabla y añadir el nombre al ComboBox
+                foreach (DataRow row in tablaCategorias.Rows)
+                {
+                    cmbCategoria.Items.Add(row["nombre_categoria"].ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron categorias activas.");
+            }
         }
 
         private void cmbCategoria_TextChanged(object sender, EventArgs e)
