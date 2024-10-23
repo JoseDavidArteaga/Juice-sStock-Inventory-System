@@ -19,7 +19,7 @@ namespace JuiceStockProject.Presentacion
             InitializeComponent();
         }
 
-        string cadena = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", PRECIO_PROD \"Precio\" FROM VISTA_PRODUCTOS";
+        string cadena = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", NOMBRE_PROV \"Proveedor\", PRECIO_PROD \"Precio\" FROM VISTA_PRODUCTOS";
         D_Productos Datos = new D_Productos();
 
         private void Listado_pro()
@@ -85,13 +85,13 @@ namespace JuiceStockProject.Presentacion
             if (string.IsNullOrWhiteSpace(textoBusqueda))
             {
                 // Si el TextBox está vacío, mostrar todos los productos
-                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", PRECIO_PROD \"Precio\" " +
+                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", NOMBRE_PROV \"Proveedor\", PRECIO_PROD \"Precio\" " +
                                    "FROM VISTA_PRODUCTOS";
             }
             else
             {
                 // Si hay texto, buscar los productos que contengan la cadena ingresada
-                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", PRECIO_PROD \"Precio\" " +
+                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", NOMBRE_PROV \"Proveedor\", PRECIO_PROD \"Precio\" " +
                                    "FROM VISTA_PRODUCTOS " +
                                    "WHERE upper(NOMBRE_PROD) LIKE '%" + textoBusqueda.ToUpper() + "%' " +
                                    "ORDER BY CASE " +
@@ -140,7 +140,7 @@ namespace JuiceStockProject.Presentacion
             if (string.IsNullOrWhiteSpace(textoCategoria))
             {
                 // Si el TextBox está vacío, mostrar todos los productos
-                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", CANTIDAD_PROD \"Cantidad\" " +
+                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\",NOMBRE_PROV \"Proveedor\", PRECIO_PROD \"Precio\" " +
                                    "FROM VISTA_PRODUCTOS";
             }
             /*else if (cmbCategoria.SelectedItem.ToString() == "")
@@ -152,7 +152,7 @@ namespace JuiceStockProject.Presentacion
             else
             {
                 // Si hay texto, buscar los productos que contengan la cadena ingresada
-                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", CANTIDAD_PROD \"Cantidad\" " +
+                consultaFiltrada = "SELECT ID_PROD \"Identificador\", NOMBRE_PROD \"Nombre\", NOMBRE_CATEGORIA \"Categoría\", NOMBRE_PROV \"Proveedor\", PRECIO_PROD \"Precio\" " +
                                    "FROM VISTA_PRODUCTOS " +
                                    "WHERE upper(NOMBRE_CATEGORIA) LIKE '%" + textoCategoria.ToUpper() + "%' " +
                                    "ORDER BY NOMBRE_CATEGORIA ASC ";
