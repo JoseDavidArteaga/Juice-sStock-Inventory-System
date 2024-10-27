@@ -90,7 +90,9 @@
             txtContraseña.BorderStyle = BorderStyle.FixedSingle;
             txtContraseña.Cursor = Cursors.IBeam;
             txtContraseña.Location = new Point(112, 322);
+            txtContraseña.MaxLength = 50;
             txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(207, 27);
             txtContraseña.TabIndex = 3;
             txtContraseña.KeyPress += txtContraseña_KeyPress;
@@ -100,6 +102,7 @@
             txtUsuario.BorderStyle = BorderStyle.FixedSingle;
             txtUsuario.Cursor = Cursors.IBeam;
             txtUsuario.Location = new Point(112, 231);
+            txtUsuario.MaxLength = 50;
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(207, 27);
             txtUsuario.TabIndex = 2;
@@ -130,6 +133,7 @@
             // 
             // frmLogin
             // 
+            AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(432, 553);
