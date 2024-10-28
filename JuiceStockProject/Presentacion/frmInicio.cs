@@ -12,6 +12,7 @@ namespace JuiceStockProject.Presentacion
 {
     public partial class frmInicio : Form
     {
+        string UsuarioActual = frmLogin.NombreUsuario;
         public frmInicio()
         {
             InitializeComponent();
@@ -21,6 +22,8 @@ namespace JuiceStockProject.Presentacion
             lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
             timerTime.Start();
+
+
         }
 
         private void timerTime_Tick(object sender, EventArgs e)
@@ -28,6 +31,11 @@ namespace JuiceStockProject.Presentacion
             // Actualizar el Label con la hora y fecha actuales
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
             lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            lblNombreUsuario.Text = "Bienvenido " + UsuarioActual;
         }
     }
 }

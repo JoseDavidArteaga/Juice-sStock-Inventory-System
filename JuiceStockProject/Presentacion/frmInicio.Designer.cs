@@ -29,26 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            label1 = new Label();
             lblTime = new Label();
             timerTime = new System.Windows.Forms.Timer(components);
             lblDate = new Label();
+            lblNombreUsuario = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(377, 120);
-            label1.Name = "label1";
-            label1.Size = new Size(264, 72);
-            label1.TabIndex = 0;
-            label1.Text = "BIENVENIDO USUARIO\r\n\r\n";
             // 
             // lblTime
             // 
+            lblTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTime.AutoSize = true;
-            lblTime.Location = new Point(499, 259);
+            lblTime.Location = new Point(487, 215);
             lblTime.Name = "lblTime";
             lblTime.Size = new Size(36, 20);
             lblTime.TabIndex = 1;
@@ -62,32 +53,43 @@
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(499, 297);
+            lblDate.Location = new Point(483, 278);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(43, 20);
             lblDate.TabIndex = 2;
             lblDate.Text = "lunes";
+            // 
+            // lblNombreUsuario
+            // 
+            lblNombreUsuario.AutoSize = true;
+            lblNombreUsuario.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombreUsuario.Location = new Point(462, 123);
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(21, 36);
+            lblNombreUsuario.TabIndex = 3;
+            lblNombreUsuario.Text = ".";
+            lblNombreUsuario.TextAlign = ContentAlignment.TopCenter;
             // 
             // frmInicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1052, 603);
+            Controls.Add(lblNombreUsuario);
             Controls.Add(lblDate);
             Controls.Add(lblTime);
-            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmInicio";
             Text = "frmInicio";
+            Load += frmInicio_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Label lblTime;
         private System.Windows.Forms.Timer timerTime;
         private Label lblDate;
+        private Label lblNombreUsuario;
     }
 }

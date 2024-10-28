@@ -14,6 +14,7 @@ namespace JuiceStockProject.Presentacion
 {
     public partial class frmLogin : Form
     {
+        public static string NombreUsuario { get; set; }
         public frmLogin()
         {
             InitializeComponent();
@@ -65,9 +66,11 @@ namespace JuiceStockProject.Presentacion
             {
                 case 0:
                     // Usuario y contraseña correctos
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    NombreUsuario = usuario;
+                    this.DialogResult = DialogResult.OK; // Establecer el resultado como "OK"
+                    this.Close(); // Cierra el formulario de login
                     break;
+
                 case 1:
                     MessageBox.Show("Contraseña incorrecta");
                     break;
