@@ -1,0 +1,21 @@
+--Categorias de productos
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (1, 'HELADERIA');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (2, 'ACOMPAÑANTE');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (3, 'BEBIDA CALIENTE');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (4, 'BEBIDA FRIA');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (5, 'LIMONADA');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (6, 'GRANIZADO');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (7, 'VASO DE JUGO');
+INSERT INTO Categoria_Producto (id_categoria, nombre_categoria) VALUES (8, 'JARRA DE JUGO');
+
+--Proveedores provicionales
+INSERT INTO Proveedor VALUES (100, 'Zumo Vital', '3157852415', 'zumovital100@gmail.com', 'Calle 4 #12-10, Barrio Centro', 'ACTIVO');
+INSERT INTO Proveedor VALUES (200, 'La Casa del Helado', '3224859612', 'chelado123@gmail.com', 'Carrera 8 #7-18, B. Bolivar', 'ACTIVO');
+INSERT INTO Proveedor VALUES (300, 'Crocantes y Cía', '3114587625', 'ciacrocante@hotmail.com', 'Avenida Principal #15-25', 'ACTIVO');
+INSERT INTO Proveedor VALUES (400, 'Horno Tradicional', '3109988547', 'alhornotrad@gmail.com', 'Calle 10 #9-30, B. La Paz', 'ACTIVO');
+
+--Usuarios (para iniciar sesion)
+INSERT INTO USUARIO VALUES(100, 'Juice´s Stock', 'admin', '1234');
+INSERT INTO USUARIO VALUES(300, 'Tester', 'pruebas', '1234');
+
+commit;
