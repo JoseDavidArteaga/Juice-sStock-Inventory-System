@@ -194,17 +194,17 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox txbNombre;
-        private TextBox txbPrecio;
-        private ComboBox cmbProveedor;
-        private ComboBox cmbCategoria;
-        private Button btnAgregarProducto;
-        private Label lblIncompleto;
-        private Label lblPrecio0;
+        internal Label label1;
+        internal Label label2;
+        internal Label label3;
+        internal Label label4;
+        internal Label label5;
+        internal TextBox txbNombre;
+        internal TextBox txbPrecio;
+        internal ComboBox cmbProveedor;
+        internal ComboBox cmbCategoria;
+        internal Button btnAgregarProducto;
+        internal Label lblIncompleto;
+        internal Label lblPrecio0;
     }
 }

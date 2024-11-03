@@ -39,11 +39,13 @@
             // 
             lblTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTime.AutoSize = true;
-            lblTime.Location = new Point(487, 215);
+            lblTime.Font = new Font("Bahnschrift SemiCondensed", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTime.ForeColor = Color.FromArgb(142, 184, 194);
+            lblTime.Location = new Point(80, 192);
             lblTime.Name = "lblTime";
-            lblTime.Size = new Size(36, 20);
+            lblTime.Size = new Size(223, 72);
             lblTime.TabIndex = 1;
-            lblTime.Text = "6:43";
+            lblTime.Text = "06:43:00";
             // 
             // timerTime
             // 
@@ -52,22 +54,27 @@
             // 
             // lblDate
             // 
+            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(483, 278);
+            lblDate.BackColor = SystemColors.Control;
+            lblDate.Font = new Font("Bahnschrift SemiCondensed", 24F);
+            lblDate.ForeColor = Color.FromArgb(142, 184, 194);
+            lblDate.Location = new Point(80, 281);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(43, 20);
+            lblDate.Size = new Size(505, 48);
             lblDate.TabIndex = 2;
-            lblDate.Text = "lunes";
+            lblDate.Text = "domingo 24 de octubre de 2024";
+            lblDate.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombreUsuario.Location = new Point(462, 123);
+            lblNombreUsuario.Font = new Font("Bahnschrift SemiCondensed", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombreUsuario.Location = new Point(80, 97);
             lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(21, 36);
+            lblNombreUsuario.Size = new Size(353, 48);
             lblNombreUsuario.TabIndex = 3;
-            lblNombreUsuario.Text = ".";
+            lblNombreUsuario.Text = "BIENVENIDO USUARIO";
             lblNombreUsuario.TextAlign = ContentAlignment.TopCenter;
             // 
             // frmInicio

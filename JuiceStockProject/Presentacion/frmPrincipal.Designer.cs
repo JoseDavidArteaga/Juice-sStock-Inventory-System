@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             pnOpciones = new Panel();
+            btnCerrarSesion = new Button();
             panel4 = new Panel();
             btnReportes = new Button();
             panel3 = new Panel();
@@ -46,6 +48,7 @@
             // pnOpciones
             // 
             pnOpciones.BackColor = Color.FromArgb(142, 184, 194);
+            pnOpciones.Controls.Add(btnCerrarSesion);
             pnOpciones.Controls.Add(panel4);
             pnOpciones.Controls.Add(btnReportes);
             pnOpciones.Controls.Add(panel3);
@@ -61,10 +64,28 @@
             pnOpciones.Size = new Size(230, 603);
             pnOpciones.TabIndex = 0;
             // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.FromArgb(122, 164, 164);
+            btnCerrarSesion.Cursor = Cursors.Hand;
+            btnCerrarSesion.Dock = DockStyle.Bottom;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 158, 49);
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = Color.White;
+            btnCerrarSesion.Location = new Point(0, 558);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(230, 45);
+            btnCerrarSesion.TabIndex = 11;
+            btnCerrarSesion.Text = "Cerrar Sesión";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(255, 158, 49);
-            panel4.Location = new Point(0, 409);
+            panel4.Location = new Point(0, 411);
             panel4.Name = "panel4";
             panel4.Size = new Size(7, 70);
             panel4.TabIndex = 10;
@@ -77,7 +98,7 @@
             btnReportes.FlatStyle = FlatStyle.Flat;
             btnReportes.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(3, 409);
+            btnReportes.Location = new Point(3, 411);
             btnReportes.Name = "btnReportes";
             btnReportes.Size = new Size(227, 70);
             btnReportes.TabIndex = 9;
@@ -184,6 +205,7 @@
             ClientSize = new Size(1282, 603);
             Controls.Add(pnContenedor);
             Controls.Add(pnOpciones);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JuiceStock";
@@ -206,5 +228,6 @@
         private Button btnProveedores;
         private Panel panel2;
         private Button btnProductos;
+        private Button btnCerrarSesion;
     }
 }

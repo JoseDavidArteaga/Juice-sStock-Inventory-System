@@ -65,5 +65,13 @@ namespace JuiceStockProject
             restablecerColor();
             btnReportes.BackColor = Color.FromArgb(255, 158, 49);
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            // Cierra el formulario principal, indicando que debe reiniciarse el flujo de login
+            this.DialogResult = DialogResult.Abort; // O cualquier otro resultado específico que prefieras
+            this.Close();
+        }
+
     }
 }

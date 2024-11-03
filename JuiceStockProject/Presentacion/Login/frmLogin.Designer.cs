@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             panel1 = new Panel();
             lblDatosIncompletos = new Label();
             label2 = new Label();
@@ -111,7 +112,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.JuiceStockIcon;
-            pictureBox1.Location = new Point(116, 33);
+            pictureBox1.Location = new Point(117, 48);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(202, 99);
             pictureBox1.TabIndex = 1;
@@ -120,10 +121,12 @@
             // btnLogin
             // 
             btnLogin.BackColor = Color.FromArgb(142, 184, 194);
+            btnLogin.FlatAppearance.BorderColor = Color.FromArgb(142, 184, 194);
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Bahnschrift SemiCondensed", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(150, 415);
+            btnLogin.ForeColor = Color.Black;
+            btnLogin.Location = new Point(149, 419);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(130, 40);
             btnLogin.TabIndex = 0;
@@ -138,9 +141,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(432, 553);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
+            Text = "Inicio de Sesión";
             Load += frmLogin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

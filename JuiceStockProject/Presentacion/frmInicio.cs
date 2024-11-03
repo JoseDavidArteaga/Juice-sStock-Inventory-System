@@ -35,7 +35,7 @@ namespace JuiceStockProject.Presentacion
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            lblNombreUsuario.Text = "Bienvenido " + UsuarioActual;
+            lblNombreUsuario.Text = "BIENVENIDO " + UsuarioActual;
         }
     }
 }
