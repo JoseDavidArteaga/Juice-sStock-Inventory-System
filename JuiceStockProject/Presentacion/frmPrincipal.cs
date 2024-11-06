@@ -58,6 +58,7 @@ namespace JuiceStockProject
         {
             restablecerColor();
             btnProveedores.BackColor = Color.FromArgb(255, 158, 49);
+            AbrirFormHija(new frmProveedores());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
