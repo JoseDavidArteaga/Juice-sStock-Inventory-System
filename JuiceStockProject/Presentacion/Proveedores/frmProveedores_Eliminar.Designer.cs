@@ -42,7 +42,7 @@
             btnEliminarProveedores.FlatAppearance.BorderSize = 0;
             btnEliminarProveedores.FlatStyle = FlatStyle.Flat;
             btnEliminarProveedores.Font = new Font("Bahnschrift SemiCondensed", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEliminarProveedores.Location = new Point(240, 249);
+            btnEliminarProveedores.Location = new Point(239, 275);
             btnEliminarProveedores.Name = "btnEliminarProveedores";
             btnEliminarProveedores.Size = new Size(113, 38);
             btnEliminarProveedores.TabIndex = 15;

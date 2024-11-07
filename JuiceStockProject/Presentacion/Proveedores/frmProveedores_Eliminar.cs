@@ -100,7 +100,7 @@ namespace JuiceStockProject.Presentacion.Proveedores
                 else
                 {
                     // Mensaje de error diferente
-                    MessageBox.Show("OCurrió un error al intentar eliminar el proveedor");
+                    MessageBox.Show("Ocurrió un error al intentar eliminar el proveedor");
                 }
                 // Cerrar el formulario de agregar inventario
                 this.Close();
