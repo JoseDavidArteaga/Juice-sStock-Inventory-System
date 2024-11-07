@@ -50,5 +50,12 @@ namespace JuiceStockProject.Presentacion
             // Mostrar frmProductos_Agregar como un cuadro de diálogo modal
             agregarProveedores.ShowDialog();
         }
+
+        private void btnEliminarProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedores_Eliminar eliminarProveedores = new frmProveedores_Eliminar();
+            eliminarProveedores.Owner = this;
+            eliminarProveedores.ShowDialog();
+        }
     }
 }

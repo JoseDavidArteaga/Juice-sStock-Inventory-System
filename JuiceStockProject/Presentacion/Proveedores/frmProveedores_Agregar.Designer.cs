@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedores_Agregar));
             lblTelefono = new Label();
             lblIncompleto = new Label();
             btnAgregarProveedores = new Button();
@@ -173,7 +174,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmProveedores_Agregar";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Proveedores";
             ResumeLayout(false);
             PerformLayout();

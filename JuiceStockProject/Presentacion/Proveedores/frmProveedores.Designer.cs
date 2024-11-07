@@ -81,6 +81,7 @@
             btnEliminarProveedores.TabIndex = 1;
             btnEliminarProveedores.Text = "Eliminar";
             btnEliminarProveedores.UseVisualStyleBackColor = false;
+            btnEliminarProveedores.Click += btnEliminarProveedores_Click;
             // 
             // btnAgregarProveedores
             // 

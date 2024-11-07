@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos_Eliminar));
             label1 = new Label();
             cmbProductos = new ComboBox();
             label2 = new Label();
@@ -87,6 +88,7 @@
             Controls.Add(label2);
             Controls.Add(cmbProductos);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmProductos_Eliminar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Eliminar Productos";
