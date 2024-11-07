@@ -17,6 +17,8 @@ namespace JuiceStockProject.Presentacion.Proveedores
         public frmProveedores_Agregar()
         {
             InitializeComponent();
+            // Invisibilizar etiquetas que no son necesarias al iniciar el formulario
+            lblTelefono.Visible = false;
         }
 
         D_Productos Datos = new D_Productos();
@@ -26,11 +28,19 @@ namespace JuiceStockProject.Presentacion.Proveedores
 
             try
             {
+                // Verificar si se ha ingresado un nombre, un telefono, un correo o una direccion
+                if (txbNombre.Text.Length == 0 || txbTelefono.Text.Length == 0 || txbCorreo.Text.Length == 0 || txbDirección.Text.Length == 0)
+                {
+                    lblIncompleto.Visible = true;
+                    btnAgregarProveedores.Enabled = false;
+                    return; // Salir del método si no hay un producto seleccionado
+                }
+
                 //Obtener el nombre del proveedor nuevo
                 string nombreProv = txbNombre.Text;
 
                 // Obtener el telefono del proveedor nuevo
-                string telefono= txbTelefono.Text;
+                string telefono = txbTelefono.Text;
 
                 // Obtener el correo
                 string correo = txbCorreo.Text;
@@ -101,6 +111,63 @@ namespace JuiceStockProject.Presentacion.Proveedores
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar la cantidad: " + ex.Message);
+            }
+        }
+
+        private void txbTelefono_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnAgregarProveedores.Enabled = true;
+
+            // Verificar si el texto es exactamente "0"
+            if (!txbTelefono.Text.StartsWith("3"))
+            {
+                lblTelefono.Visible = true;   // Mostrar el mensaje de advertencia si es "0"
+                btnAgregarProveedores.Enabled = false; // Inhabilitar botón de agregar producto hasta que el precio sea diferente de 0
+            }
+            else
+            {
+                lblTelefono.Visible = false;  // Ocultar el mensaje si el texto es diferente a "0"
+                btnAgregarProveedores.Enabled = true; // Habilitar botón de agregar producto ya que el precio no es 0
+            }
+        }
+
+        private void txbNombre_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnAgregarProveedores.Enabled = true;
+        }
+
+        private void txbCorreo_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnAgregarProveedores.Enabled = true;
+        }
+
+        private void txbDirección_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnAgregarProveedores.Enabled = true;
+        }
+
+        private void txbTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la combinación de teclas es Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
+        }
+
+        private void txbTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+
+            // Validar si el carácter es un número o si es la tecla de retroceso (para borrar)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar el carácter si no es un número
             }
         }
     }
