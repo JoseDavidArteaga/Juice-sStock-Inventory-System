@@ -114,7 +114,7 @@
             // 
             pictureBox1.BackColor = Color.FromArgb(255, 158, 49);
             pictureBox1.Image = Properties.Resources.buscar1;
-            pictureBox1.Location = new Point(484, 86);
+            pictureBox1.Location = new Point(485, 86);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(40, 35);
             pictureBox1.TabIndex = 8;
