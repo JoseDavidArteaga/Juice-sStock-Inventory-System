@@ -98,7 +98,7 @@ namespace JuiceStockProject.Presentacion.Productos
                 else
                 {
                     // Mensaje de error diferente
-                    MessageBox.Show("OCurrió un error al intentar eliminar el producto");
+                    MessageBox.Show("Ocurrió un error al intentar eliminar el producto");
                 }
                 // Cerrar el formulario de agregar inventario
                 this.Close();
