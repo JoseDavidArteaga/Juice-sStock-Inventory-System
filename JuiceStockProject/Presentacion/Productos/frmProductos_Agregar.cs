@@ -42,6 +42,7 @@ namespace JuiceStockProject.Presentacion.Productos
             else
             {
                 MessageBox.Show("No se encontraron proveedores activos.");
+                return;
             }
         }
 

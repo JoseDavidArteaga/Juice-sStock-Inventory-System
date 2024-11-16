@@ -1,5 +1,4 @@
 ﻿using JuiceStockProject.Datos;
-using JuiceStockProject.Presentacion.Productos;
 using JuiceStockProject.Presentacion.Proveedores;
 using System;
 using System.Collections.Generic;

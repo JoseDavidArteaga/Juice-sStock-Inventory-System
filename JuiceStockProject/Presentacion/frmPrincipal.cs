@@ -65,6 +65,7 @@ namespace JuiceStockProject
         {
             restablecerColor();
             btnReportes.BackColor = Color.FromArgb(255, 158, 49);
+            AbrirFormHija(new frmReportes());
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
