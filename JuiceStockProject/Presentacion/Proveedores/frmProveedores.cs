@@ -18,7 +18,7 @@ namespace JuiceStockProject.Presentacion
         {
             InitializeComponent();
         }
-        string cadena = "SELECT id_prov\"Identificador\", nombre_prov \"Nombre\", telefono_prov \"Telefono\", correo_prov \"Correo Electronico\", direccion_prov \"Dirección\" FROM PROVEEDOR";
+        string cadena = "SELECT * FROM VISTA_PROVEEDORES";
         D_Productos Datos = new D_Productos();
 
         private void Listado_pro()

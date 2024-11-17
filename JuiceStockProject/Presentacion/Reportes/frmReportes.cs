@@ -17,7 +17,17 @@ namespace JuiceStockProject.Presentacion
         {
             InitializeComponent();
         }
+        string cadena = "SELECT * FROM VISTA_MOVIMIENTOS_GENERAL";
+        public void listado_pro()
+        {
+            // Llamar al método que carga los datos en el DataGridView
+            D_Productos Datos = new D_Productos();
+            dgvMovimientos.DataSource = Datos.listado_pro(cadena);
+        }
 
-        
+        private void frmReportes_Load(object sender, EventArgs e)
+        {
+            this.listado_pro();
+        }
     }
 }

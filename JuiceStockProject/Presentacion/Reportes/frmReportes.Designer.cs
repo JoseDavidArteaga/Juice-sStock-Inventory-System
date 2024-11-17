@@ -84,15 +84,15 @@
             dgvMovimientos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvMovimientos.Dock = DockStyle.Fill;
             dgvMovimientos.EnableHeadersVisualStyles = false;
-            dgvMovimientos.GridColor = Color.FromArgb(222, 220, 220);
-            dgvMovimientos.Location = new Point(0, 133);
+            dgvMovimientos.GridColor = SystemColors.ControlDark;
+            dgvMovimientos.Location = new Point(0, 143);
             dgvMovimientos.Name = "dgvMovimientos";
             dgvMovimientos.ReadOnly = true;
             dgvMovimientos.RowHeadersVisible = false;
             dgvMovimientos.RowHeadersWidth = 51;
             dgvMovimientos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvMovimientos.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvMovimientos.Size = new Size(1052, 470);
+            dgvMovimientos.Size = new Size(1052, 460);
             dgvMovimientos.TabIndex = 5;
             // 
             // panel1
@@ -107,7 +107,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1052, 133);
+            panel1.Size = new Size(1052, 143);
             panel1.TabIndex = 6;
             // 
             // pictureBox1
@@ -189,6 +189,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmReportes";
             Text = "frmReportes";
+            Load += frmReportes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMovimientos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
