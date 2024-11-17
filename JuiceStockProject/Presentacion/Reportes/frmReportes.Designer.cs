@@ -33,7 +33,7 @@
             panel2 = new Panel();
             dgvMovimientos = new DataGridView();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
+            btnFiltrarReportes = new PictureBox();
             dateFin = new DateTimePicker();
             dateInicio = new DateTimePicker();
             panel3 = new Panel();
@@ -42,7 +42,7 @@
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvMovimientos).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnFiltrarReportes).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -98,7 +98,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(78, 141, 164);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnFiltrarReportes);
             panel1.Controls.Add(dateFin);
             panel1.Controls.Add(dateInicio);
             panel1.Controls.Add(panel3);
@@ -110,15 +110,17 @@
             panel1.Size = new Size(1052, 143);
             panel1.TabIndex = 6;
             // 
-            // pictureBox1
+            // btnFiltrarReportes
             // 
-            pictureBox1.BackColor = Color.FromArgb(255, 158, 49);
-            pictureBox1.Image = Properties.Resources.buscar1;
-            pictureBox1.Location = new Point(485, 86);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 35);
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
+            btnFiltrarReportes.BackColor = Color.FromArgb(255, 158, 49);
+            btnFiltrarReportes.Cursor = Cursors.Hand;
+            btnFiltrarReportes.Image = Properties.Resources.buscar1;
+            btnFiltrarReportes.Location = new Point(485, 86);
+            btnFiltrarReportes.Name = "btnFiltrarReportes";
+            btnFiltrarReportes.Size = new Size(40, 35);
+            btnFiltrarReportes.TabIndex = 8;
+            btnFiltrarReportes.TabStop = false;
+            btnFiltrarReportes.Click += btnFiltrarReportes_Click;
             // 
             // dateFin
             // 
@@ -193,7 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvMovimientos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnFiltrarReportes).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -210,6 +212,6 @@
         private Panel panel3;
         private DateTimePicker dateInicio;
         private DateTimePicker dateFin;
-        private PictureBox pictureBox1;
+        private PictureBox btnFiltrarReportes;
     }
 }
