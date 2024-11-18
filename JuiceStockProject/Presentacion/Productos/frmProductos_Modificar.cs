@@ -195,6 +195,11 @@ namespace JuiceStockProject.Presentacion.Productos
                 }
 
                 // Llenar los txb con los datos traídos del procedimiento
+
+                txbPrecio.Text = precio.ToString();
+                cmbProveedor.Text = nombreProv;
+                cmbCategoria.Text = nombreCat;
+
             }
             catch (Exception ex)
             {
