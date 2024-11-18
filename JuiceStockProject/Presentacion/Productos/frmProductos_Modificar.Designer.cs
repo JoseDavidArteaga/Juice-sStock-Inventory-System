@@ -44,6 +44,7 @@
             label3 = new Label();
             label6 = new Label();
             cmbProductos = new ComboBox();
+            lblSeleccionarProd = new Label();
             pnlModificar.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,6 +85,7 @@
             // pnlModificar
             // 
             pnlModificar.BackColor = SystemColors.ScrollBar;
+            pnlModificar.Controls.Add(lblSeleccionarProd);
             pnlModificar.Controls.Add(lblPrecio0);
             pnlModificar.Controls.Add(btnModificarProducto);
             pnlModificar.Controls.Add(lblIncompleto);
@@ -131,6 +133,7 @@
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(151, 28);
             cmbCategoria.TabIndex = 34;
+            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
             // 
             // cmbProveedor
             // 
@@ -141,6 +144,7 @@
             cmbProveedor.Name = "cmbProveedor";
             cmbProveedor.Size = new Size(187, 28);
             cmbProveedor.TabIndex = 33;
+            cmbProveedor.SelectedIndexChanged += cmbProveedor_SelectedIndexChanged;
             // 
             // txbPrecio
             // 
@@ -149,6 +153,9 @@
             txbPrecio.Name = "txbPrecio";
             txbPrecio.Size = new Size(127, 27);
             txbPrecio.TabIndex = 32;
+            txbPrecio.TextChanged += txbPrecio_TextChanged;
+            txbPrecio.KeyDown += txbPrecio_KeyDown;
+            txbPrecio.KeyPress += txbPrecio_KeyPress;
             // 
             // txbNombre
             // 
@@ -157,6 +164,8 @@
             txbNombre.Name = "txbNombre";
             txbNombre.Size = new Size(187, 27);
             txbNombre.TabIndex = 31;
+            txbNombre.TextChanged += txbNombre_TextChanged;
+            txbNombre.KeyPress += txbNombre_KeyPress;
             // 
             // label5
             // 
@@ -205,6 +214,16 @@
             cmbProductos.TabIndex = 26;
             cmbProductos.SelectedIndexChanged += cmbProductos_SelectedIndexChanged;
             // 
+            // lblSeleccionarProd
+            // 
+            lblSeleccionarProd.AutoSize = true;
+            lblSeleccionarProd.ForeColor = Color.FromArgb(192, 0, 0);
+            lblSeleccionarProd.Location = new Point(352, 195);
+            lblSeleccionarProd.Name = "lblSeleccionarProd";
+            lblSeleccionarProd.Size = new Size(165, 20);
+            lblSeleccionarProd.TabIndex = 37;
+            lblSeleccionarProd.Text = "Seleccione un producto";
+            // 
             // frmProductos_Modificar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -242,5 +261,6 @@
         internal Label label3;
         internal Label label6;
         private ComboBox cmbProductos;
+        internal Label lblSeleccionarProd;
     }
 }

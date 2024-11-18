@@ -95,6 +95,7 @@ namespace JuiceStockProject.Presentacion.Productos
 
             // Poner invisibles labels que no se necesitan
             lblPrecio0.Visible = false;
+            lblSeleccionarProd.Visible = false;
 
             // Llenar comboBox de proveedores
             this.CargarComboBoxProveedores();
@@ -121,6 +122,7 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblSeleccionarProd.Visible = false;
             string productoSeleccionado = "";
 
             // Verificar si hay un producto seleccionado
@@ -198,9 +200,24 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
+            if (cmbProductos.SelectedIndex == -1)
+            {
+                lblSeleccionarProd.Visible = true;
+                return; // Salir del método si no hay un producto seleccionado
+            }
+
+            // Verificar si se ha ingresado un nombre, un precio, se ha seleccionado un proveedor o una categoría
+            if (cmbProveedor.SelectedIndex == -1 || cmbCategoria.SelectedIndex == -1 || txbNombre.Text == "" || txbPrecio.Text == "")
+            {
+                lblIncompleto.Visible = true;
+                return; // Salir del método si no hay un producto seleccionado
+            }
+
             string productoSeleccionado = "";
 
             productoSeleccionado = cmbProductos.SelectedItem.ToString();
+
+            
 
             // Enviar nuevos valores a procedimiento para modificar productos
             int bandera = 0;
@@ -235,10 +252,8 @@ namespace JuiceStockProject.Presentacion.Productos
                     if (banderaParam.Value != DBNull.Value)
                     {
                         bandera = Convert.ToInt32(banderaParam.Value.ToString());
-                        
-                    }
 
-                    MessageBox.Show("Bandera" + bandera);
+                    }
 
                     // Casos de error según resultado de bandera
                     if (bandera == 0)
@@ -254,6 +269,73 @@ namespace JuiceStockProject.Presentacion.Productos
                     var frmProductos = (frmProductos)Owner; // Obtener el formulario padre (frmInventario)
                     frmProductos.ActualizarTabla(); // Llamar al método para actualizar la tabla
                 }
+            }
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+        }
+
+        private void txbPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+
+            // Validar si el carácter es un número o si es la tecla de retroceso (para borrar)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar el carácter si no es un número
+            }
+        }
+
+        private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+        }
+
+        private void txbPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la combinación de teclas es Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
+        }
+
+        private void txbNombre_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto ingresado tiene al menos 3 caracteres
+            if (txbNombre.Text.Length >= 3)
+            {
+                btnModificarProducto.Enabled = true;
+            }
+            else
+            {
+                btnModificarProducto.Enabled = false;
+            }
+        }
+
+        private void txbPrecio_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto es exactamente "0"
+            if (txbPrecio.Text == "0")
+            {
+                lblPrecio0.Visible = true;   // Mostrar el mensaje de advertencia si es "0"
+                btnModificarProducto.Enabled = false; // Inhabilitar botón de agregar producto hasta que el precio sea diferente de 0
+            }
+            else
+            {
+                lblPrecio0.Visible = false;  // Ocultar el mensaje si el texto es diferente a "0"
+                btnModificarProducto.Enabled = true; // Habilitar botón de agregar producto ya que el precio no es 0
             }
         }
     }
