@@ -52,6 +52,15 @@ namespace JuiceStockProject.Presentacion
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
+            string cadena1 = "SELECT nombre_prov FROM Proveedor WHERE estado_prov = 'ACTIVO'";
+            DataTable tablaProveedores = Datos.ObtenerNombres(cadena1);
+
+            if (tablaProveedores.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron proveedores activos.");
+                return;
+            }
+
             // Si hay productos, abrir el formulario de agregar producto
             frmProductos_Agregar agregarProducto = new frmProductos_Agregar();
 
@@ -64,6 +73,15 @@ namespace JuiceStockProject.Presentacion
 
         private void btnEliminarProductos_Click(object sender, EventArgs e)
         {
+            string cadena1 = "SELECT nombre_prod FROM Producto WHERE estado_prod = 'ACTIVO'";
+            DataTable tablaProductos = Datos.ObtenerNombres(cadena);
+
+            if (tablaProductos.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron productos activos.");
+                return;
+            }
+
             // Si hay productos, abrir el formulario de agregar producto
             frmProductos_Eliminar eliminarProducto = new frmProductos_Eliminar();
 
@@ -166,6 +184,23 @@ namespace JuiceStockProject.Presentacion
 
         private void btnModificarProductos_Click(object sender, EventArgs e)
         {
+            string cadena1 = "SELECT nombre_prod FROM Producto WHERE estado_prod = 'ACTIVO'";
+            string cadena2 = "SELECT nombre_prov FROM Proveedor WHERE estado_prov = 'ACTIVO'";
+            DataTable tablaProductos = Datos.ObtenerNombres(cadena1);
+            DataTable tablaProveedores = Datos.ObtenerNombres(cadena2);
+
+            if (tablaProductos.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron productos activos.");
+                return;
+            }
+
+            if (tablaProveedores.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron proveedores activos.");
+                return;
+            }
+
             // Si hay productos, abrir el formulario de agregar producto
             frmProductos_Modificar modificarProductos = new frmProductos_Modificar();
 

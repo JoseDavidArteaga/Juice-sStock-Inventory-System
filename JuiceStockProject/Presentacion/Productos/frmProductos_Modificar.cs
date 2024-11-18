@@ -1,4 +1,5 @@
 ﻿using JuiceStockProject.Datos;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,17 +121,84 @@ namespace JuiceStockProject.Presentacion.Productos
 
         private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string productoSeleccionado = "";
+
             // Mostrar el panel solo si hay un ítem seleccionado
             if (cmbProductos.SelectedIndex != -1)
             {
                 pnlModificar.Visible = true;
-                string productoSeleccionado = cmbProductos.SelectedItem.ToString();
+                productoSeleccionado = cmbProductos.SelectedItem.ToString();
                 txbNombre.Text = productoSeleccionado;
 
             }
             else
             {
                 pnlModificar.Visible = false;
+            }
+
+            // Variables para almacenar los parámetros de salida del procedimiento
+            int precio = 0;
+            string nombreProv = "", nombreCat = "";
+
+            try
+            {
+                using (OracleConnection conexion = Conexion.getInstancia().CrearConexion())
+                {
+                    using (OracleCommand comando = new OracleCommand("obtener_detalles_producto", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+
+                        // Parámetro de entrada: nombre del producto
+                        comando.Parameters.Add("p_nombre_producto", OracleDbType.Varchar2).Value = productoSeleccionado;
+
+                        // Parámetros de salida
+
+                        /* Precio */
+                        OracleParameter precioParam = new OracleParameter("p_precio", OracleDbType.Int32)
+                        {
+                            Direction = ParameterDirection.Output,
+                        };
+                        comando.Parameters.Add(precioParam);
+
+                        /* Nombre Proveedor */
+                        OracleParameter proveedorParam = new OracleParameter("p_nombre_proveedor", OracleDbType.Varchar2);
+                        proveedorParam.Direction = ParameterDirection.Output;
+                        comando.Parameters.Add(proveedorParam);
+
+                        /* Nombre Categoría */
+                        OracleParameter categoriaParam = new OracleParameter("p_nombre_categoria", OracleDbType.Varchar2);
+                        categoriaParam.Direction = ParameterDirection.Output;
+                        comando.Parameters.Add(categoriaParam);
+
+                        // Abrir conexión y ejecutar el procedimiento
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+
+                        // Recuperar el valor del parámetro de salida
+
+                        /* Precio */
+                        /*if (precioParam.Value != DBNull.Value)
+                        {
+                            Oracle.ManagedDataAccess.Types.OracleDecimal oracleDecimal = (Oracle.ManagedDataAccess.Types.OracleDecimal)precioParam.Value;
+                            precio = oracleDecimal.ToInt32();
+                        }*/
+
+                        /* Nombre Proveedor */
+                        if (proveedorParam.Value != DBNull.Value)
+                        {
+                            Oracle.ManagedDataAccess.Types.OracleString oracleString = (Oracle.ManagedDataAccess.Types.OracleString)proveedorParam.Value;
+                            nombreProv = oracleString.ToString();
+                        }
+
+                        /* Nombre Categoría */
+                    }
+                }
+
+                // Llenar los txb con los datos traídos del procedimiento
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener los detalles del producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
