@@ -218,8 +218,8 @@ namespace JuiceStockProject.Presentacion.Productos
                     // Parámetro de entrada
                     comando.Parameters.Add("nombre_actual", OracleDbType.Varchar2).Value = productoSeleccionado;
                     comando.Parameters.Add("nuevo_nombre", OracleDbType.Varchar2).Value = p_nuevoNombre;
-                    comando.Parameters.Add("p_nombre_producto", OracleDbType.Varchar2).Value = p_nuevoProveedor;
-                    comando.Parameters.Add("p_nombre_producto", OracleDbType.Varchar2).Value = p_nuevaCategoria;
+                    comando.Parameters.Add("nueva_categoria", OracleDbType.Varchar2).Value = p_nuevaCategoria;
+                    comando.Parameters.Add("nueva_proveedor", OracleDbType.Varchar2).Value = p_nuevoProveedor;
                     comando.Parameters.Add("nuevo_precio", OracleDbType.Int32).Value = nuevoPrecio;
 
                     // Parámetro de salida
@@ -237,6 +237,8 @@ namespace JuiceStockProject.Presentacion.Productos
                         bandera = Convert.ToInt32(banderaParam.Value.ToString());
                         
                     }
+
+                    MessageBox.Show("Bandera" + bandera);
 
                     // Casos de error según resultado de bandera
                     if (bandera == 0)
