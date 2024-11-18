@@ -150,6 +150,7 @@
             btnModificarProductos.TabIndex = 2;
             btnModificarProductos.Text = "Modificar";
             btnModificarProductos.UseVisualStyleBackColor = false;
+            btnModificarProductos.Click += btnModificarProductos_Click;
             // 
             // panel2
             // 

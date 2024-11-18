@@ -163,5 +163,17 @@ namespace JuiceStockProject.Presentacion
             D_Productos Datos = new D_Productos();
             dgvListadoProducto.DataSource = Datos.listado_pro(consultaFiltrada);
         }
+
+        private void btnModificarProductos_Click(object sender, EventArgs e)
+        {
+            // Si hay productos, abrir el formulario de agregar producto
+            frmProductos_Modificar modificarProductos = new frmProductos_Modificar();
+
+            // Establecer frmProductos como el formulario propietario
+            modificarProductos.Owner = this;
+
+            // Mostrar frmProductos_Agregar como un cuadro de diálogo modal
+            modificarProductos.ShowDialog();
+        }
     }
 }

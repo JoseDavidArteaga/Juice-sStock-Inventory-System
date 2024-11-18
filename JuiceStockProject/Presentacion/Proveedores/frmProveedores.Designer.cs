@@ -36,8 +36,12 @@
             btnAgregarProveedores = new Button();
             panel1 = new Panel();
             dgvListadoProveedores = new DataGridView();
+            panel3 = new Panel();
+            label1 = new Label();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvListadoProveedores).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -102,10 +106,11 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(78, 141, 164);
+            panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1052, 70);
+            panel1.Size = new Size(1052, 89);
             panel1.TabIndex = 6;
             // 
             // dgvListadoProveedores
@@ -138,15 +143,35 @@
             dgvListadoProveedores.Dock = DockStyle.Fill;
             dgvListadoProveedores.EnableHeadersVisualStyles = false;
             dgvListadoProveedores.GridColor = SystemColors.ControlDark;
-            dgvListadoProveedores.Location = new Point(0, 70);
+            dgvListadoProveedores.Location = new Point(0, 89);
             dgvListadoProveedores.Name = "dgvListadoProveedores";
             dgvListadoProveedores.ReadOnly = true;
             dgvListadoProveedores.RowHeadersVisible = false;
             dgvListadoProveedores.RowHeadersWidth = 51;
             dgvListadoProveedores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvListadoProveedores.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvListadoProveedores.Size = new Size(1052, 463);
+            dgvListadoProveedores.Size = new Size(1052, 444);
             dgvListadoProveedores.TabIndex = 7;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(142, 184, 194);
+            panel3.Controls.Add(label1);
+            panel3.Location = new Point(12, 11);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1028, 67);
+            panel3.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(15, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(341, 36);
+            label1.TabIndex = 0;
+            label1.Text = "REPORTE DE PROVEEDORES";
             // 
             // frmProveedores
             // 
@@ -161,7 +186,10 @@
             Text = "frmProveedores";
             Load += frmProveedores_Load;
             panel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvListadoProveedores).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -173,5 +201,7 @@
         private Button btnAgregarProveedores;
         private Panel panel1;
         private DataGridView dgvListadoProveedores;
+        private Panel panel3;
+        private Label label1;
     }
 }
