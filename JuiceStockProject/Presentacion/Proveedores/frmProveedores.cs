@@ -56,5 +56,12 @@ namespace JuiceStockProject.Presentacion
             eliminarProveedores.Owner = this;
             eliminarProveedores.ShowDialog();
         }
+
+        private void btnModificarProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedores_Modificar modificarProveedores = new frmProveedores_Modificar();
+            modificarProveedores.Owner = this;
+            modificarProveedores.ShowDialog();
+        }
     }
 }

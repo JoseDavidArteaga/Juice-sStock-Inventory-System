@@ -35,13 +35,13 @@
             btnEliminarProveedores = new Button();
             btnAgregarProveedores = new Button();
             panel1 = new Panel();
-            dgvListadoProveedores = new DataGridView();
             panel3 = new Panel();
             label1 = new Label();
+            dgvListadoProveedores = new DataGridView();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvListadoProveedores).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvListadoProveedores).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -70,6 +70,7 @@
             btnModificarProveedores.TabIndex = 2;
             btnModificarProveedores.Text = "Modificar";
             btnModificarProveedores.UseVisualStyleBackColor = false;
+            btnModificarProveedores.Click += btnModificarProveedores_Click;
             // 
             // btnEliminarProveedores
             // 
@@ -113,6 +114,26 @@
             panel1.Size = new Size(1052, 89);
             panel1.TabIndex = 6;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(142, 184, 194);
+            panel3.Controls.Add(label1);
+            panel3.Location = new Point(12, 11);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1028, 67);
+            panel3.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(15, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(187, 36);
+            label1.TabIndex = 0;
+            label1.Text = "PROVEEDORES";
+            // 
             // dgvListadoProveedores
             // 
             dgvListadoProveedores.AllowUserToAddRows = false;
@@ -153,26 +174,6 @@
             dgvListadoProveedores.Size = new Size(1052, 444);
             dgvListadoProveedores.TabIndex = 7;
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(142, 184, 194);
-            panel3.Controls.Add(label1);
-            panel3.Location = new Point(12, 11);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1028, 67);
-            panel3.TabIndex = 6;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift SemiCondensed", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(15, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(341, 36);
-            label1.TabIndex = 0;
-            label1.Text = "REPORTE DE PROVEEDORES";
-            // 
             // frmProveedores
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -187,9 +188,9 @@
             Load += frmProveedores_Load;
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvListadoProveedores).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvListadoProveedores).EndInit();
             ResumeLayout(false);
         }
 
