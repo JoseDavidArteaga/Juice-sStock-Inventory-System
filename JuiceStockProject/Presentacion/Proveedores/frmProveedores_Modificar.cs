@@ -199,5 +199,62 @@ namespace JuiceStockProject.Presentacion.Proveedores
                 }
             }
         }
+
+
+        private void txbTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Inhabilitar lblIncompleto porque ya no está vacío
+            lblIncompleto.Visible = false;
+
+            // Validar si el carácter es un número o si es la tecla de retroceso (para borrar)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar el carácter si no es un número
+            }
+        }
+
+        private void txbNombre_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnModificarProveedor.Enabled = true;
+        }
+
+        private void txbTelefono_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnModificarProveedor.Enabled = true;
+            // Verificar si el texto es exactamente "0"
+            if (!txbTelefono.Text.StartsWith("3"))
+            {
+                lblTelefono.Visible = true;   // Mostrar el mensaje de advertencia si es "0"
+                btnModificarProveedor.Enabled = false; // Inhabilitar botón de agregar producto hasta que el precio sea diferente de 0
+            }
+            else
+            {
+                lblTelefono.Visible = false;  // Ocultar el mensaje si el texto es diferente a "0"
+                btnModificarProveedor.Enabled = true; // Habilitar botón de agregar producto ya que el precio no es 0
+            }
+        }
+
+        private void txbCorreo_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnModificarProveedor.Enabled = true;
+        }
+
+        private void txbDirección_TextChanged(object sender, EventArgs e)
+        {
+            lblIncompleto.Visible = false;
+            btnModificarProveedor.Enabled = true;
+        }
+
+        private void txbTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la combinación de teclas es Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.SuppressKeyPress = true; // Bloquea el evento de pegar
+            }
+        }
     }
 }

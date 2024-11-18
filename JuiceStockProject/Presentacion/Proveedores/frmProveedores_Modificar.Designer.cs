@@ -76,6 +76,7 @@
             txbDirección.Name = "txbDirección";
             txbDirección.Size = new Size(190, 27);
             txbDirección.TabIndex = 44;
+            txbDirección.TextChanged += txbDirección_TextChanged;
             // 
             // txbCorreo
             // 
@@ -84,6 +85,7 @@
             txbCorreo.Name = "txbCorreo";
             txbCorreo.Size = new Size(191, 27);
             txbCorreo.TabIndex = 43;
+            txbCorreo.TextChanged += txbCorreo_TextChanged;
             // 
             // lblTelefono
             // 
@@ -103,6 +105,9 @@
             txbTelefono.Name = "txbTelefono";
             txbTelefono.Size = new Size(143, 27);
             txbTelefono.TabIndex = 41;
+            txbTelefono.TextChanged += txbTelefono_TextChanged;
+            txbTelefono.KeyDown += txbTelefono_KeyDown;
+            txbTelefono.KeyPress += txbTelefono_KeyPress;
             // 
             // label5
             // 
@@ -174,6 +179,7 @@
             txbNombre.Name = "txbNombre";
             txbNombre.Size = new Size(187, 27);
             txbNombre.TabIndex = 31;
+            txbNombre.TextChanged += txbNombre_TextChanged;
             // 
             // label6
             // 
