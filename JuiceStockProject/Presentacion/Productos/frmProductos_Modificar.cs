@@ -177,11 +177,11 @@ namespace JuiceStockProject.Presentacion.Productos
                         // Recuperar el valor del parámetro de salida
 
                         /* Precio */
-                        /*if (precioParam.Value != DBNull.Value)
+                        if (precioParam.Value != DBNull.Value)
                         {
                             Oracle.ManagedDataAccess.Types.OracleDecimal oracleDecimal = (Oracle.ManagedDataAccess.Types.OracleDecimal)precioParam.Value;
                             precio = oracleDecimal.ToInt32();
-                        }*/
+                        }
 
                         /* Nombre Proveedor */
                         if (proveedorParam.Value != DBNull.Value)
@@ -191,6 +191,11 @@ namespace JuiceStockProject.Presentacion.Productos
                         }
 
                         /* Nombre Categoría */
+                        if (categoriaParam.Value != DBNull.Value)
+                        {
+                            Oracle.ManagedDataAccess.Types.OracleString oracleString2 = (Oracle.ManagedDataAccess.Types.OracleString)categoriaParam.Value;
+                            nombreCat = oracleString2.ToString();
+                        }
                     }
                 }
 
