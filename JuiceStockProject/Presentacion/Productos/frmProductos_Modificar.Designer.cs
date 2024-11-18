@@ -60,6 +60,7 @@
             btnModificarProducto.TabIndex = 15;
             btnModificarProducto.Text = "Modificar";
             btnModificarProducto.UseVisualStyleBackColor = false;
+            btnModificarProducto.Click += btnModificarProducto_Click;
             // 
             // label2
             // 

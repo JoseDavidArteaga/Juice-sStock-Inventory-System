@@ -195,5 +195,64 @@ namespace JuiceStockProject.Presentacion.Productos
                 cmbCategoria.Text = "";
             }
         }
+
+        private void btnModificarProducto_Click(object sender, EventArgs e)
+        {
+            string productoSeleccionado = "";
+
+            productoSeleccionado = cmbProductos.SelectedItem.ToString();
+
+            // Enviar nuevos valores a procedimiento para modificar productos
+            int bandera = 0;
+            int nuevoPrecio = Convert.ToInt32(txbPrecio.Text);
+            string p_nuevoNombre = txbNombre.Text;
+            string p_nuevoProveedor = cmbProveedor.SelectedItem.ToString();
+            string p_nuevaCategoria = cmbCategoria.SelectedItem.ToString();
+
+            using (OracleConnection conexion = Conexion.getInstancia().CrearConexion())
+            {
+                using (OracleCommand comando = new OracleCommand("modificar_producto_proc", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetro de entrada
+                    comando.Parameters.Add("nombre_actual", OracleDbType.Varchar2).Value = productoSeleccionado;
+                    comando.Parameters.Add("nuevo_nombre", OracleDbType.Varchar2).Value = p_nuevoNombre;
+                    comando.Parameters.Add("p_nombre_producto", OracleDbType.Varchar2).Value = p_nuevoProveedor;
+                    comando.Parameters.Add("p_nombre_producto", OracleDbType.Varchar2).Value = p_nuevaCategoria;
+                    comando.Parameters.Add("nuevo_precio", OracleDbType.Int32).Value = nuevoPrecio;
+
+                    // Parámetro de salida
+                    OracleParameter banderaParam = new OracleParameter("p_bandera", OracleDbType.Int32, 32);
+                    banderaParam.Direction = ParameterDirection.Output;
+                    comando.Parameters.Add(banderaParam);
+
+                    // Ejecutar el procedimiento
+                    conexion.Open();
+                    comando.ExecuteNonQuery();
+
+                    // Retornar valor de parámetro de salida
+                    if (banderaParam.Value != DBNull.Value)
+                    {
+                        bandera = Convert.ToInt32(banderaParam.Value.ToString());
+                        
+                    }
+
+                    // Casos de error según resultado de bandera
+                    if (bandera == 0)
+                    {
+                        // Mensaje de éxito
+                        MessageBox.Show("El producto se ha modificado correctamente.");
+                    }
+
+                    // Cerrar el formulario de agregar inventario
+                    this.Close();
+
+                    // Actualizar el formulario de productos
+                    var frmProductos = (frmProductos)Owner; // Obtener el formulario padre (frmInventario)
+                    frmProductos.ActualizarTabla(); // Llamar al método para actualizar la tabla
+                }
+            }
+        }
     }
 }
