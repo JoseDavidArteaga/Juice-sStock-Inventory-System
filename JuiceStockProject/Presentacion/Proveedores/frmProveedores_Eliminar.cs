@@ -52,17 +52,33 @@ namespace JuiceStockProject.Presentacion.Proveedores
         {
             try
             {
-                if(cmbProveedores.SelectedIndex == -1)
+                if (cmbProveedores.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Por favor, seleccione un proveedor");
+                    MessageBox.Show("Por favor, seleccione un proveedor.");
                     return;
                 }
+
                 string nombreProveedorSeleccionado = cmbProveedores.SelectedItem.ToString();
                 int bandera = 0;
-                //Crear la conexión
+
+                // Mostrar mensaje de confirmación
+                DialogResult confirmacion = MessageBox.Show(
+                    "Se eliminará el proveedor: " + nombreProveedorSeleccionado + ". ¿Está seguro?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmacion == DialogResult.No)
+                {
+                    // Si selecciona "No", se cancela la eliminación
+                    return;
+                }
+
+                // Crear la conexión
                 using (OracleConnection conexion = Conexion.getInstancia().CrearConexion())
                 {
-                    //Crear el comando para llamar el procedimineto almacenado
+                    // Crear el comando para llamar al procedimiento almacenado
                     using (OracleCommand comando = new OracleCommand("eliminar_proveedor", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
@@ -87,32 +103,33 @@ namespace JuiceStockProject.Presentacion.Proveedores
                         }
                     }
                 }
+
+                // Validar el resultado
                 if (bandera == 0)
                 {
-                    // Mensaje de éxito
                     MessageBox.Show("El proveedor se ha eliminado correctamente.");
                 }
                 else if (bandera == 1)
                 {
-                    // Mensaje de error producto tiene cantidad en inventario
-                    MessageBox.Show("El proveedor tiene productos asociados");
+                    MessageBox.Show("El proveedor tiene productos asociados. No se puede eliminar.");
                 }
                 else
                 {
-                    // Mensaje de error diferente
-                    MessageBox.Show("Ocurrió un error al intentar eliminar el proveedor");
+                    MessageBox.Show("Ocurrió un error al intentar eliminar el proveedor.");
                 }
-                // Cerrar el formulario de agregar inventario
+
+                // Cerrar el formulario
                 this.Close();
 
                 // Actualizar el formulario de inventario
-                var frmProveedor = (frmProveedores)Owner; // Obtener el formulario padre (frmInventario)
+                var frmProveedor = (frmProveedores)Owner; // Obtener el formulario padre
                 frmProveedor.ActualizarTabla(); // Llamar al método para actualizar la tabla
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar el proveedor: " + ex.Message);
             }
         }
+
     }
 }

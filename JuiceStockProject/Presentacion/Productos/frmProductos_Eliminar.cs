@@ -55,6 +55,20 @@ namespace JuiceStockProject.Presentacion.Productos
                 }
                 string nombreProductoSeleccionado = cmbProductos.SelectedItem.ToString();
                 int banderaEliminar = 0;
+
+                // Mostrar mensaje de confirmación
+                DialogResult confirmacion = MessageBox.Show(
+                    "Se eliminará el producto: " + nombreProductoSeleccionado + ". ¿Está seguro?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmacion == DialogResult.No)
+                {
+                    // Si selecciona "No", se cancela la eliminación
+                    return;
+                }
                 //Crear la conexión
                 using (OracleConnection conexion = Conexion.getInstancia().CrearConexion())
                 {
