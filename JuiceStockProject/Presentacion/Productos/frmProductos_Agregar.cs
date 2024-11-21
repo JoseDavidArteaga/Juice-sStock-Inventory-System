@@ -41,7 +41,7 @@ namespace JuiceStockProject.Presentacion.Productos
             }
             else
             {
-                MessageBox.Show("No se encontraron proveedores activos.");
+                MessageBox.Show("No se encontraron proveedores activos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -65,7 +65,10 @@ namespace JuiceStockProject.Presentacion.Productos
             }
             else
             {
-                MessageBox.Show("No se encontraron categorias activas.");
+                MessageBox.Show("No se encontraron categorias activas.",
+                        "Advertencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
             }
         }
 
@@ -158,18 +161,28 @@ namespace JuiceStockProject.Presentacion.Productos
                 if (banderaAgregar == 0)
                 {
                     // Mensaje de éxito
-                    MessageBox.Show("El producto se ha agregado correctamente.");
+                    MessageBox.Show("El producto se ha agregado correctamente",
+                "Éxito",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
                 }
                 else if (banderaAgregar == 1)
                 {
                     // Mensaje de error producto ya existente
-                    MessageBox.Show("El nombre de producto especificado ya existe");
+                    MessageBox.Show("El nombre de producto especificado ya existe",
+                        "Advertencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                     return;
                 }
                 else
                 {
                     // Mensaje de error diferente
-                    MessageBox.Show("Ocurrió un error al intentar agregar el producto");
+                    MessageBox.Show("Ocurrió un error al intentar agregar el producto",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
                 // Cerrar el formulario de agregar inventario
                 this.Close();

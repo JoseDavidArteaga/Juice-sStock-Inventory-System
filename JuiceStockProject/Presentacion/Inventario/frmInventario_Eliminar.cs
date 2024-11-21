@@ -132,7 +132,11 @@ namespace JuiceStockProject.Presentacion.Inventario
                 }
 
                 // Mensaje de éxito
-                MessageBox.Show("La cantidad se ha actualizado correctamente.");
+                MessageBox.Show("La cantidad se ha actualizado correctamente.",
+                "Éxito",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
 
                 // Cerrar el formulario de agregar inventario
                 this.Close();

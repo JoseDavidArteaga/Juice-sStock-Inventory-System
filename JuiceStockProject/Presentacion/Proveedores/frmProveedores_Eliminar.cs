@@ -39,7 +39,7 @@ namespace JuiceStockProject.Presentacion.Proveedores
             }
             else
             {
-                MessageBox.Show("No se encontraron proveedores activos.");
+                MessageBox.Show("No se encontraron proveedores activos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void frmProveedores_Eliminar_Load(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace JuiceStockProject.Presentacion.Proveedores
                 // Validar el resultado
                 if (bandera == 0)
                 {
-                    MessageBox.Show("El proveedor se ha eliminado correctamente.");
+                    MessageBox.Show("El proveedor se ha eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (bandera == 1)
                 {
