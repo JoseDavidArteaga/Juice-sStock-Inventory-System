@@ -1,0 +1,75 @@
+Universo del Discurso:
+
+Una cafetería gestiona su inventario de productos a través de un software que permite registrar proveedores,
+categorías de productos, movimientos de entrada y salida, así como usuarios encargados de administrar el sistema.
+
+Los proveedores suministran los productos necesarios, de los cuales se desea registrar su identificación,
+nombre, teléfono, correo electrónico, dirección y estado (activo o inactivo).
+
+Los productos están clasificados en diferentes categorías, y se desea almacenar su identificación, nombre,
+categoría, precio, cantidad disponible, estado (activo o inactivo), y el proveedor que los suministra. Las
+categorías se definen previamente con un identificador y un nombre.
+
+Los movimientos de inventario registran entradas o salidas de productos, e incluyen información como la
+cantidad de productos, fecha del movimiento, precio unitario y tipo de movimiento (entrada o salida).
+
+Finalmente, el sistema es gestionado por usuarios, de los cuales se guarda su identificación, nombre, nombre
+de usuario y contraseña. Los usuarios son responsables de supervisar los movimientos y mantener actualizada
+la información de productos y proveedores.
+
+Entidades y Atributos
+
+Nombre de la entidad: Proveedor
+
+Atributos:
+Identificación: Numérico
+Nombre: Cadena de caracteres
+Teléfono: Cadena de caracteres
+Correo: Cadena de caracteres
+Dirección: Cadena de caracteres
+Estado: Cadena de caracteres (valores: ACTIVO, INACTIVO)
+Nombre de la entidad: CategoriaProducto
+
+Atributos:
+Identificación: Numérico
+Nombre: Cadena de caracteres
+Nombre de la entidad: Producto
+
+Atributos:
+Identificación: Numérico
+Nombre: Cadena de caracteres
+Categoría: Referencia a CategoriaProducto
+Precio: Decimal
+Cantidad: Numérico
+Estado: Cadena de caracteres (valores: ACTIVO, INACTIVO)
+Proveedor: Referencia a Proveedor
+Nombre de la entidad: Movimiento
+
+Atributos:
+Identificación: Numérico
+Producto: Referencia a Producto
+Cantidad: Numérico
+Fecha: Fecha y hora
+Precio unitario: Decimal
+Tipo: Cadena de caracteres (valores: ENTRADA, SALIDA)
+Nombre de la entidad: Usuario
+
+Atributos:
+Identificación: Numérico
+Nombre: Cadena de caracteres
+Nombre de usuario: Cadena de caracteres
+Contraseña: Cadena de caracteres
+
+Relaciones
+Proveedor (1) - suministra - (0..*) Producto
+
+Relación: Un proveedor puede suministrar múltiples productos, pero un producto está asociado a un único proveedor.
+CategoriaProducto (1) - clasifica - (0..*) Producto
+
+Relación: Una categoría puede clasificar múltiples productos, pero un producto pertenece a una sola categoría.
+Producto (1) - está asociado a - (0..*) Movimiento
+
+Relación: Un producto puede estar involucrado en múltiples movimientos, pero cada movimiento está asociado a un solo producto.
+Usuario (1) - administra - (0..*) Movimiento
+
+Relación: Un usuario puede gestionar múltiples movimientos, pero un movimiento no necesariamente necesita un usuario específico.
